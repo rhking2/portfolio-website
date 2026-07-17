@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+  ROBIN HARWELL — PORTFOLIO SITE
+  ================================
+  This file holds all the page CONTENT (text, images, links).
+  Look for the big "EDIT HERE" comments below — those mark the
+  spots you're most likely to want to change. Everything else is
+  just page structure and can be left alone.
+
+  Full plain-language editing instructions are in README.md.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,6 +30,8 @@
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
+  <!-- Menu links. If you rename a section heading below, you don't need to
+       change these — they just need to keep pointing at the right #id. -->
   <nav class="site-nav" id="siteNav">
     <a href="#about"><span class="star">✦</span>About Me</a>
     <a href="#work"><span class="star">✦</span>Work</a>
@@ -31,7 +43,8 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- ======================= HERO ======================= -->
+  <!-- EDIT HERE: your name and one-line title -->
   <section id="home" class="section hero">
     <div class="hero-inner">
       <h1 class="hero-name"><span class="line dark">Robin</span><span class="line accent">Harwell</span></h1>
@@ -43,7 +56,8 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ======================= ABOUT ======================= -->
+  <!-- EDIT HERE: your bio text and photo -->
   <section id="about" class="section about">
     <div class="about-grid">
       <div class="about-copy">
@@ -52,16 +66,26 @@
         <p>Based in Austin, TX, I currently lead marketing &amp; communications for a national nonprofit — overseeing brand, content, email, social, and advertising strategy across markets nationwide.</p>
       </div>
       <div class="about-photo">
+        <!-- To swap your photo: replace assets/img/headshot.jpg with a new
+             image of the same filename, or upload a new file and change
+             the "src" below to match its filename. -->
         <img src="assets/img/headshot.jpg" alt="Portrait of Robin Harwell" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- WORK / PORTFOLIO -->
+  <!-- ======================= WORK / PORTFOLIO ======================= -->
+  <!-- EDIT HERE: add, remove, or update project cards.
+       Each project is one self-contained block below — copy an entire
+       block (from "<div class="project" to the closing "</div>" for that
+       project) to add a new one, then edit the text and image inside it.
+       Alternate the class "project-media-right" / "project-media-left"
+       on new blocks so image and text zig-zag left/right down the page. -->
   <section id="work" class="section work">
     <h2 class="section-title">Selected Work</h2>
     <p class="section-sub">A few projects from my time leading marketing &amp; communications at the National Children's Chorus.</p>
 
+    <!-- Project 1 -->
     <div class="project project-media-right">
       <div class="project-copy">
         <span class="project-eyebrow">Project 01</span>
@@ -74,17 +98,14 @@
         </ul>
       </div>
       <div class="project-media">
-        <div class="device device-laptop">
-          <img src="assets/img/email-campaign.jpg" alt="National Youth Opera Academy email announcement" loading="lazy">
-        </div>
+        <img src="assets/img/email-campaign.jpg" alt="National Youth Opera Academy email announcement" loading="lazy">
       </div>
     </div>
 
+    <!-- Project 2 -->
     <div class="project project-media-left">
       <div class="project-media">
-        <div class="device device-photo">
-          <img src="assets/img/opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" loading="lazy">
-        </div>
+        <img src="assets/img/opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" loading="lazy">
       </div>
       <div class="project-copy">
         <span class="project-eyebrow">Project 02</span>
@@ -93,25 +114,23 @@
       </div>
     </div>
 
+    <!-- Project 3 -->
     <div class="project project-media-right">
       <div class="project-copy">
         <span class="project-eyebrow">Project 03</span>
         <h3>Copywriting</h3>
         <p>Sponsored email copy written for a target audience placement in the New York market, promoting organization auditions. Contributed to 8 of 64 total enrollment sign-ups in that market, representing 12.5% of all NYC registrations from a single campaign.</p>
       </div>
-      <div class="project-media">
-        <div class="device device-phone">
-          <img src="assets/img/copywriting-email.jpg" alt="Vocal audition recruitment email on a phone screen" loading="lazy">
-        </div>
+      <div class="project-media project-media--narrow">
+        <img src="assets/img/copywriting-email.jpg" alt="Vocal audition recruitment email on a phone screen" loading="lazy">
       </div>
     </div>
 
+    <!-- Project 4 (two images side by side — use "project-media--pair" for this) -->
     <div class="project project-media-left">
-      <div class="project-media">
-        <div class="device device-stack">
-          <img src="assets/img/postcard-fall2025.jpg" alt="Vocal auditions postcard for Fall 2025" loading="lazy">
-          <img src="assets/img/postcard-cities.jpg" alt="Vocal auditions postcard listing chapter cities" loading="lazy">
-        </div>
+      <div class="project-media project-media--pair">
+        <img src="assets/img/postcard-fall2025.jpg" alt="Vocal auditions postcard for Fall 2025" loading="lazy">
+        <img src="assets/img/postcard-cities.jpg" alt="Vocal auditions postcard listing chapter cities" loading="lazy">
       </div>
       <div class="project-copy">
         <span class="project-eyebrow">Project 04</span>
@@ -122,7 +141,9 @@
 
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- ======================= EXPERIENCE ======================= -->
+  <!-- EDIT HERE: copy a whole "<article class="timeline-item">...</article>"
+       block to add a new job. Newest role goes at the top. -->
   <section id="experience" class="section experience">
     <h2 class="section-title">Experience</h2>
 
@@ -178,7 +199,8 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ======================= SKILLS ======================= -->
+  <!-- EDIT HERE: add or remove a line to add/remove a skill chip -->
   <section id="skills" class="section skills">
     <h2 class="section-title">Skills</h2>
     <ul class="skill-chips">
@@ -196,7 +218,8 @@
     </ul>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ======================= CONTACT ======================= -->
+  <!-- EDIT HERE: your phone, email, and links -->
   <section id="contact" class="section contact">
     <h2 class="hero-name contact-title"><span class="line dark">Get In</span><span class="line accent">Touch</span></h2>
     <div class="contact-grid">

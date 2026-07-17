@@ -1,14 +1,17 @@
+/* ==========================================================
+   COLORS — change a value here to re-theme the whole site.
+   ========================================================== */
 :root {
-  --bg: #e9f9f6;
-  --bg-alt: #ddf3ef;
-  --navy: #2c3247;
-  --sage: #86ac9f;
-  --sage-dark: #6c9689;
-  --ink: #38405a;
-  --line: #2c3247;
+  --bg: #e9f9f6;        /* page background (mint) */
+  --bg-alt: #ddf3ef;    /* unused accent background */
+  --navy: #2c3247;      /* headings, buttons, dark text */
+  --sage: #86ac9f;      /* accent green (name highlight, "Touch") */
+  --sage-dark: #6c9689; /* accent green, hover states, stars */
+  --ink: #38405a;       /* body text */
+  --line: #2c3247;      /* the vertical rail line */
   --white: #ffffff;
   --radius: 14px;
-  --max: 1160px;
+  --max: 1160px;        /* max content width */
   --font-head: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -253,38 +256,34 @@ a { color: inherit; text-decoration: none; }
   color: var(--navy);
 }
 
-.project-media { display: flex; justify-content: center; }
+/* Project images: deliberately simple so ANY photo or screenshot you
+   drop in — any size, any shape — looks right without extra tweaking. */
+.project-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.device img {
-  border-radius: 10px;
+.project-media img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius);
   box-shadow: 0 24px 48px -20px rgba(44, 50, 71, .35);
 }
 
-.device-laptop {
-  border: 10px solid var(--navy);
-  border-bottom-width: 18px;
-  border-radius: 14px;
-  overflow: hidden;
-  max-width: 480px;
-}
-.device-laptop img { border-radius: 0; box-shadow: none; }
+/* Use on a project-media that holds a tall/narrow image (e.g. a phone
+   screenshot) so it doesn't stretch too wide. */
+.project-media--narrow img { max-width: 260px; }
 
-.device-phone {
-  border: 8px solid var(--navy);
-  border-radius: 34px;
-  overflow: hidden;
-  max-width: 220px;
+/* Use on a project-media with two images to show them side by side. */
+.project-media--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 560px;
+  width: 100%;
 }
-.device-phone img { border-radius: 0; box-shadow: none; }
-
-.device-photo img { max-width: 520px; }
-
-.device-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-width: 420px;
-}
+.project-media--pair img { max-width: 100%; }
 
 /* Experience */
 .timeline { display: flex; flex-direction: column; gap: 44px; }
@@ -393,42 +392,75 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
 }
 
-/* Responsive */
-@media (max-width: 860px) {
+/* ==========================================================
+   RESPONSIVE — tablet and phone layouts.
+   ========================================================== */
+
+/* Tablet: two-column layouts collapse to one column, nav still visible. */
+@media (max-width: 900px) {
+  .site-nav { gap: 18px; font-size: .9rem; }
+  .section { padding-top: 72px; }
+
   .about-grid { grid-template-columns: 1fr; }
-  .about-photo { order: -1; max-width: 280px; margin: 0 auto; }
+  .about-photo { order: -1; max-width: 320px; margin: 0 auto; }
 
   .project,
   .project-media-left {
     grid-template-columns: 1fr;
     grid-template-areas: none;
-    gap: 32px;
+    gap: 28px;
+    margin-bottom: 72px;
   }
   .project-media-left .project-media { order: -1; }
+  .project-media img,
+  .project-media--narrow img { max-width: 420px; margin: 0 auto; }
+  .project-media--pair { max-width: 480px; margin: 0 auto; }
 
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 
   .contact-grid { grid-template-columns: 1fr; }
 }
 
+/* Phone: stacked nav menu behind a hamburger button. */
 @media (max-width: 720px) {
+  .site-header { padding: 16px 20px; }
+
   .site-nav {
     position: fixed;
-    top: 84px;
+    top: 76px;
     left: 0;
     right: 0;
     background: var(--bg);
     flex-direction: column;
     gap: 0;
-    padding: 12px clamp(20px, 6vw, 72px) 24px;
+    padding: 12px 20px 24px;
     transform: translateY(-120%);
     opacity: 0;
     transition: transform .25s ease, opacity .25s ease;
     border-bottom: 1px solid rgba(44, 50, 71, .12);
   }
   .site-nav.open { transform: translateY(0); opacity: 1; }
-  .site-nav a { padding: 12px 0; border-bottom: 1px solid rgba(44, 50, 71, .08); }
+  .site-nav a { padding: 14px 0; border-bottom: 1px solid rgba(44, 50, 71, .08); font-size: 1rem; }
   .nav-toggle { display: flex; }
+
   .rail { left: 12px; }
-  .hero { min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+
+  .section { padding: 56px 20px 8px; }
+  .hero { min-height: auto; padding-top: 48px; padding-bottom: 48px; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { text-align: center; }
+
+  .project-media img,
+  .project-media--narrow img { max-width: 100%; }
+  .project-media--pair { grid-template-columns: 1fr; max-width: 320px; }
+
+  .contact { padding-bottom: 90px; }
+
+  .site-footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px 32px; }
+}
+
+/* Very small phones: tighten type scale a touch more. */
+@media (max-width: 380px) {
+  .hero-name { font-size: clamp(2.6rem, 14vw, 3.4rem); }
+  .section-title { font-size: 1.7rem; }
 }
