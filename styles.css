@@ -48,6 +48,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Header / Nav */
+/* Solid background (not translucent) so content scrolling underneath
+   never shows through — translucent + blur is unreliable on mobile
+   browsers and looked like a visual glitch. */
 .site-header {
   position: sticky;
   top: 0;
@@ -56,8 +59,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   padding: 20px clamp(16px, 5vw, 64px);
-  background: rgba(233, 249, 246, 0.85);
-  backdrop-filter: blur(8px);
+  background: var(--bg);
+  box-shadow: 0 1px 0 rgba(44, 50, 71, .08);
 }
 
 .brand {
