@@ -219,79 +219,6 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 24px 48px -20px rgba(44, 50, 71, .35);
 }
 
-/* Work / Projects */
-.project {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  margin-bottom: 100px;
-}
-
-.project-media-left { grid-template-areas: "media copy"; }
-.project-media-left .project-media { grid-area: media; }
-.project-media-left .project-copy { grid-area: copy; }
-
-.project-eyebrow {
-  display: inline-block;
-  font-weight: 600;
-  color: var(--sage-dark);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: .75rem;
-  margin-bottom: 10px;
-}
-
-.project-copy h3 {
-  font-family: var(--font-head);
-  font-weight: 700;
-  color: var(--navy);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin: 0 0 14px;
-}
-
-.project-copy p { max-width: 480px; }
-
-.stat-list {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-weight: 500;
-  color: var(--navy);
-}
-
-/* Project images: deliberately simple so ANY photo or screenshot you
-   drop in — any size, any shape — looks right without extra tweaking. */
-.project-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-media img {
-  width: 100%;
-  max-width: 480px;
-  border-radius: var(--radius);
-  box-shadow: 0 24px 48px -20px rgba(44, 50, 71, .35);
-}
-
-/* Use on a project-media that holds a tall/narrow image (e.g. a phone
-   screenshot) so it doesn't stretch too wide. */
-.project-media--narrow img { max-width: 260px; }
-
-/* Use on a project-media with two images to show them side by side. */
-.project-media--pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 560px;
-  width: 100%;
-}
-.project-media--pair img { max-width: 100%; }
-
 /* Experience */
 .timeline { display: flex; flex-direction: column; gap: 44px; }
 
@@ -411,18 +338,6 @@ a { color: inherit; text-decoration: none; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { order: -1; max-width: 320px; margin: 0 auto; }
 
-  .project,
-  .project-media-left {
-    grid-template-columns: 1fr;
-    grid-template-areas: none;
-    gap: 28px;
-    margin-bottom: 72px;
-  }
-  .project-media-left .project-media { order: -1; }
-  .project-media img,
-  .project-media--narrow img { max-width: 420px; margin: 0 auto; }
-  .project-media--pair { max-width: 480px; margin: 0 auto; }
-
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 
   .contact-grid { grid-template-columns: 1fr; }
@@ -456,10 +371,6 @@ a { color: inherit; text-decoration: none; }
   .hero { min-height: auto; padding-top: 48px; padding-bottom: 48px; }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { text-align: center; }
-
-  .project-media img,
-  .project-media--narrow img { max-width: 100%; }
-  .project-media--pair { grid-template-columns: 1fr; max-width: 320px; }
 
   .contact { padding-bottom: 90px; }
 

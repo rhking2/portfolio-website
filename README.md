@@ -11,7 +11,7 @@ a browser.
 - `index.html` — page content (all the text, images, and links)
 - `styles.css` — styling (colors, spacing, fonts)
 - `script.js` — nav toggle, active-link highlighting (you shouldn't need to touch this)
-- `assets/img/` — project and headshot images
+- `assets/img/` — headshot image
 - `assets/Robin_Harwell_Resume.pdf` — downloadable resume
 - `CNAME` — custom domain for GitHub Pages (robinharwell.com)
 
@@ -53,23 +53,6 @@ just edit the words between them.
 Photos and screenshots of any size or shape will display nicely — you don't
 need to crop or resize before uploading (though smaller files, ideally under
 ~1–2 MB, will make the page load faster).
-
-### Add a new project to "Selected Work"
-
-Find any existing project block in `index.html` — it starts with
-`<!-- Project` and a number, and ends at the matching closing `</div>` right
-before the next `<!-- Project` comment (or `</section>`). Copy that whole
-block, paste it in, and edit:
-
-- the eyebrow label (`Project 05`)
-- the title, description, and any stats
-- the image `src` (see "Swap a photo" above for uploading it first)
-
-Alternate `project-media-right` and `project-media-left` on each new block
-so the image zig-zags from side to side down the page. If a project has one
-tall/narrow image (like a phone screenshot), add the class
-`project-media--narrow` to its `project-media` div; for two images side by
-side, use `project-media--pair` instead.
 
 ### Add a new job to "Experience"
 
