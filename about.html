@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- ABOUT PAGE — see index.html for notes on this site's page structure. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Robin Harwell</title>
+<meta name="description" content="About Robin Harwell, a creative marketing and communications professional based in Austin, TX.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="rail" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">RH</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="site-nav" id="siteNav">
+    <a href="about.html"><span class="star">✦</span>About Me</a>
+    <a href="work.html"><span class="star">✦</span>Work</a>
+    <a href="resume.html"><span class="star">✦</span>Resume</a>
+    <a href="contact.html"><span class="star">✦</span>Get In Touch</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ======================= ABOUT ======================= -->
+  <!-- EDIT HERE: your bio text and photo -->
+  <section class="section about">
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2>Hello, I'm Robin!</h2>
+        <p>Creative marketing and communications professional with 7+ years of experience across education, nonprofit, and small business. Known for building meaningful connections through intentional communications, thoughtful content, and consistent storytelling.</p>
+        <p>Based in Austin, TX, I currently lead marketing &amp; communications for a national nonprofit — overseeing brand, content, email, social, and advertising strategy across markets nationwide.</p>
+        <a class="page-next" href="work.html">See my work →</a>
+      </div>
+      <div class="about-photo">
+        <!-- To swap your photo: replace assets/img/headshot.jpg with a new
+             image of the same filename, or upload a new file and change
+             the "src" below to match its filename. -->
+        <img src="assets/img/headshot.jpg" alt="Portrait of Robin Harwell" width="800" height="800" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Robin Harwell</span>
+  <a href="index.html">RH</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

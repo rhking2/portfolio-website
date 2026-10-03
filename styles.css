@@ -145,6 +145,70 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 48px;
 }
 
+/* A title + action (e.g. a "Download PDF" button) side by side on one row. */
+.section-headrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.section-headrow .section-title { margin-bottom: 0; }
+
+/* A "Next: ... →" link at the bottom of a page, pointing to the next
+   page in the site's About → Work → Resume → Contact flow. */
+.page-next {
+  display: inline-block;
+  margin-top: 56px;
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.page-next:hover { color: var(--sage-dark); border-color: var(--sage-dark); }
+
+/* Home page: link cards to the other pages */
+.link-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid rgba(44, 50, 71, .12);
+  border-radius: var(--radius);
+  transition: transform .2s, box-shadow .2s;
+}
+.link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -24px rgba(44, 50, 71, .35);
+}
+
+.link-card-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.link-card-desc {
+  color: var(--ink);
+  opacity: .8;
+  font-size: .95rem;
+}
+
+.link-card-arrow {
+  color: var(--sage-dark);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
 /* Hero */
 .hero {
   min-height: 88vh;
@@ -345,13 +409,13 @@ a { color: inherit; text-decoration: none; }
   gap: 8px;
 }
 
-.education {
+.subsection {
   margin-top: 60px;
   padding-top: 32px;
   border-top: 1px solid rgba(44, 50, 71, .2);
 }
 
-.education h3 {
+.subsection h3 {
   font-family: var(--font-head);
   color: var(--navy);
   margin-bottom: 8px;
@@ -379,6 +443,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Contact */
 .contact { padding-bottom: 140px; }
+
+/* Home page's last section needs its own bottom padding since there's
+   nothing else below it before the footer. */
+.home-links { padding-bottom: 120px; }
 
 .contact-title { margin-bottom: 50px; }
 
@@ -439,6 +507,7 @@ a { color: inherit; text-decoration: none; }
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 
   .contact-grid { grid-template-columns: 1fr; }
+  .link-card-grid { grid-template-columns: 1fr; }
 }
 
 /* Phone: stacked nav menu behind a hamburger button. */
@@ -476,6 +545,7 @@ a { color: inherit; text-decoration: none; }
   .project-media--stack { max-width: 320px; }
 
   .contact { padding-bottom: 90px; }
+  .home-links { padding-bottom: 80px; }
 
   .site-footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px 32px; }
 }

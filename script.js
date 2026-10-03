@@ -15,21 +15,10 @@ siteNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
-const sections = document.querySelectorAll('main .section[id]');
-const navLinks = document.querySelectorAll('.site-nav a');
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach((link) => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  },
-  { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
-);
-
-sections.forEach((section) => observer.observe(section));
+// Highlight whichever nav link points at the page currently being viewed.
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+siteNav.querySelectorAll('a').forEach((link) => {
+  if (link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});

@@ -8,21 +8,34 @@ a browser.
 
 ## Structure
 
-- `index.html` — page content (all the text, images, and links)
-- `styles.css` — styling (colors, spacing, fonts)
-- `script.js` — nav toggle, active-link highlighting (you shouldn't need to touch this)
+This is a five-page site:
+
+- `index.html` — Home (hero + links to the other pages)
+- `about.html` — About
+- `work.html` — Selected Work (project case studies)
+- `resume.html` — Resume (experience, education, skills)
+- `contact.html` — Contact
+
+Plus:
+
+- `styles.css` — styling (colors, spacing, fonts) — shared by every page
+- `script.js` — nav toggle, active-link highlighting — shared by every page, you shouldn't need to touch this
 - `assets/img/` — project and headshot images
 - `assets/Robin_Harwell_Resume.pdf` — downloadable resume
 - `CNAME` — custom domain for GitHub Pages (robinharwell.com)
+
+The header (logo + nav) and footer at the top and bottom of each HTML file
+are identical across all five pages. If you ever rename a page or change
+the nav links, make that edit in all five files, not just one.
 
 ---
 
 ## How to update this site (no coding experience needed)
 
-Every change below is made in **`index.html`**, using GitHub's built-in
-editor:
+Every change below is made in one of the five page files listed above,
+using GitHub's built-in editor:
 
-1. Go to the file on GitHub (`index.html` in this repo).
+1. Go to the right file on GitHub (e.g. `work.html` to edit the Work page).
 2. Click the **pencil icon** ("Edit this file") in the top right.
 3. Make your change.
 4. Scroll down, add a short note about what you changed, and click
@@ -30,15 +43,15 @@ editor:
 5. If the site is connected to GitHub Pages (see below), your change goes
    live automatically within a minute or two — nothing else to do.
 
-Search for the word **"EDIT HERE"** in the file — it's used as a comment
-above every section you're likely to want to change, so you can jump
-straight to the right spot instead of reading the whole file.
+Search for the word **"EDIT HERE"** in a file — it's used as a comment
+above every spot you're likely to want to change, so you can jump straight
+there instead of reading the whole file.
 
 ### Change any text (bio, project descriptions, job bullets, etc.)
 
-Find the sentence in `index.html` and type over it, right in the GitHub
-editor. Text inside `< >` angle brackets is formatting — leave those alone,
-just edit the words between them.
+Find the sentence in the relevant page file and type over it, right in the
+GitHub editor. Text inside `< >` angle brackets is formatting — leave those
+alone, just edit the words between them.
 
 ### Swap a photo
 
@@ -46,9 +59,9 @@ just edit the words between them.
    web UI) using the **same file name** as the one you're replacing, e.g.
    `headshot.jpg`. It will automatically replace the old one — no other
    changes needed.
-2. Prefer a different file name instead? Upload the new image, then in
-   `index.html` find the matching `<img src="assets/img/...">` line and
-   update the file name there.
+2. Prefer a different file name instead? Upload the new image, then in the
+   relevant page file find the matching `<img src="assets/img/...">` line
+   and update the file name there.
 
 Photos and screenshots of any size or shape will display nicely — you don't
 need to crop or resize before uploading (though smaller files, ideally under
@@ -56,7 +69,7 @@ need to crop or resize before uploading (though smaller files, ideally under
 
 ### Add a new project to "Selected Work"
 
-Find any existing project block in `index.html` — it starts with
+In `work.html`, find any existing project block — it starts with
 `<!-- Project` and a number, and ends at the matching closing `</div>` right
 before the next `<!-- Project` comment (or `</section>`). Copy that whole
 block, paste it in, and edit:
@@ -72,31 +85,30 @@ tall/narrow image (like a phone screenshot), `project-media--pair` for two
 images side by side, or `project-media--stack` for one big image with a
 `project-media--pair` of two smaller ones stacked beneath it.
 
-### Add a new job to "Experience"
+### Add a new job to "Resume"
 
-Copy one whole `<article class="timeline-item">...</article>` block, paste
-it above the others (newest role at the top), and edit the date, title,
-company, and bullet points.
+In `resume.html`, copy one whole `<article class="timeline-item">...</article>`
+block, paste it above the others (newest role at the top), and edit the
+date, title, company, and bullet points.
 
 ### Add or remove a skill
 
-In the "Skills" section, each skill is one `<li>Skill Name</li>` line —
-add, remove, or edit a line to update the list.
+In `resume.html`, under "Skills," each skill is one `<li>Skill Name</li>`
+line — add, remove, or edit a line to update the list.
 
 ### Update contact info or resume
 
-- Phone/email/LinkedIn: edit the matching line in the "Get In Touch"
-  section.
-- Resume: upload a new PDF to `assets/`, then update the two
-  `assets/Robin_Harwell_Resume.pdf` links in `index.html` to match its file
-  name (or just re-upload using that exact same file name to skip this
-  step).
+- Phone/email/LinkedIn: edit the matching line in `contact.html`.
+- Resume: upload a new PDF to `assets/`, then update the
+  `assets/Robin_Harwell_Resume.pdf` links in `index.html`, `resume.html`,
+  and `contact.html` to match its file name (or just re-upload using that
+  exact same file name to skip this step).
 
 ### Change colors
 
 All colors live in one place at the very top of `styles.css`, each with a
 comment explaining what it controls. Change a value there and it updates
-everywhere that color is used on the site.
+everywhere that color is used, on every page.
 
 ---
 
