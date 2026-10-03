@@ -284,6 +284,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Work / Projects */
+/* This page has no .section-sub subtitle under the heading, so give the
+   title its own breathing room before the first project. */
+.work .section-title { margin-bottom: 48px; }
+
 .project {
   display: grid;
   grid-template-columns: 1fr 1fr;
