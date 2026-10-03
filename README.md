@@ -93,6 +93,10 @@ image, and change the `href` to your video link (Google Drive, YouTube,
 TikTok, etc.). If it's a Google Drive link, make sure its sharing is set to
 "Anyone with the link can view," or visitors won't be able to open it.
 
+To show a small label above the video (like "Click Below to View"), add
+`project-media--captioned` to the `project-media` div and put
+`<p class="media-caption">Your text</p>` right before the `<a>`.
+
 ### Add a new job to "Resume"
 
 In `resume.html`, copy one whole `<article class="timeline-item">...</article>`

@@ -336,15 +336,35 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 /* Use on a project-media that holds a tall/narrow image (e.g. a phone
    screenshot) so it doesn't stretch too wide. */
-.project-media--narrow img { max-width: 260px; }
+.project-media--narrow img,
+.project-media--narrow .media-video-link { max-width: 260px; }
+
+/* Use on a project-media with a small <p class="media-caption"> label
+   above the image (e.g. "Click Below to View" over the UGC video). */
+.project-media--captioned {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.media-caption {
+  margin: 0;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  text-align: center;
+}
 
 /* A clickable video thumbnail: wrap an <img> in an <a class="media-video-link">
    and add a <span class="play-button"> after it (see the UGC project in
    work.html for an example) to link an image to an external video with a
    play icon overlaid on top. */
+/* Fills its column up to the same max-width as the image inside it, so
+   the image has a definite width to size against (shrink-to-fit here
+   collapsed the image to 0px wide in stacked/column layouts). */
 .media-video-link {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
 }
 
 .play-button {
@@ -538,6 +558,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   }
   .project-media img,
   .project-media--narrow img { max-width: 420px; margin: 0 auto; }
+  .project-media--narrow .media-video-link { max-width: 420px; }
   .project-media--pair,
   .project-media--stack { max-width: 480px; margin: 0 auto; }
 
@@ -580,7 +601,8 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   .section { padding-left: 20px; padding-right: 20px; }
 
   .project-media img,
-  .project-media--narrow img { max-width: 100%; }
+  .project-media--narrow img,
+  .project-media--narrow .media-video-link { max-width: 100%; }
   .project-media--pair { grid-template-columns: 1fr; max-width: 320px; }
   .project-media--stack { max-width: 320px; }
 
