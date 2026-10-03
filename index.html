@@ -2,11 +2,11 @@
 <!--
   ROBIN HARWELL — PORTFOLIO SITE — HOME PAGE
   ================================
-  This site has five pages: index.html (Home), about.html, work.html,
-  resume.html, and contact.html. Each one holds its own content; the
-  header/nav and footer at the top and bottom of this file are repeated
-  identically on every page — if you change the nav links, update them
-  in all five files.
+  This site has four pages: index.html (Home — includes the About
+  content), work.html, resume.html, and contact.html. Each one holds
+  its own content; the header/nav and footer at the top and bottom of
+  this file are repeated identically on every page — if you change the
+  nav links, update them in all four files.
 
   Look for the big "EDIT HERE" comments below — those mark the spots
   you're most likely to want to change. Full plain-language editing
@@ -34,8 +34,7 @@
     <span></span><span></span><span></span>
   </button>
   <nav class="site-nav" id="siteNav">
-    <a href="about.html"><span class="star">✦</span>About Me</a>
-    <a href="work.html"><span class="star">✦</span>Work</a>
+    <a href="work.html"><span class="star">✦</span>Portfolio</a>
     <a href="resume.html"><span class="star">✦</span>Resume</a>
     <a href="contact.html"><span class="star">✦</span>Get In Touch</a>
   </nav>
@@ -56,11 +55,25 @@
     </div>
   </section>
 
-  <!-- ======================= EXPLORE LINKS ======================= -->
-  <!-- EDIT HERE: the link text for each button -->
-  <section class="section home-links">
+  <!-- ======================= ABOUT ======================= -->
+  <!-- EDIT HERE: your bio text and photo -->
+  <section class="section about">
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2>Hello, I'm Robin!</h2>
+        <p>I'm a creative professional with over seven years of experience crafting meaningful content, engaging audiences through thoughtful communications, and managing multi-channel campaigns. My career started in public education, where I discovered my love for storytelling and building community, which ultimately led me to my current role as Marketing &amp; Communications Manager for a nonprofit.</p>
+        <p>Outside of my work, I find fulfillment in exploring creativity through art and music, spending time outdoors on horseback, and cozying up to read a good book.</p>
+      </div>
+      <div class="about-photo">
+        <!-- To swap your photo: replace assets/img/headshot.jpg with a new
+             image of the same filename, or upload a new file and change
+             the "src" below to match its filename. -->
+        <img src="assets/img/headshot.jpg" alt="Portrait of Robin Harwell" width="800" height="800" loading="lazy">
+      </div>
+    </div>
+
+    <!-- EDIT HERE: the link text for each button -->
     <div class="link-card-grid">
-      <a class="btn btn-ghost link-btn" href="about.html">About Me</a>
       <a class="btn btn-ghost link-btn" href="work.html">Portfolio</a>
       <a class="btn btn-ghost link-btn" href="resume.html">Resume</a>
       <a class="btn btn-ghost link-btn" href="contact.html">Get In Touch</a>

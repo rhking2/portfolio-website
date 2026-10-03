@@ -8,11 +8,10 @@ a browser.
 
 ## Structure
 
-This is a five-page site:
+This is a four-page site:
 
-- `index.html` — Home (hero + links to the other pages)
-- `about.html` — About
-- `work.html` — Selected Work (project case studies)
+- `index.html` — Home (hero, bio/photo, and buttons to the other pages)
+- `work.html` — Portfolio (project case studies)
 - `resume.html` — Resume (experience, education, skills)
 - `contact.html` — Contact
 
@@ -25,14 +24,14 @@ Plus:
 - `CNAME` — custom domain for GitHub Pages (robinharwell.com)
 
 The header (logo + nav) and footer at the top and bottom of each HTML file
-are identical across all five pages. If you ever rename a page or change
-the nav links, make that edit in all five files, not just one.
+are identical across all four pages. If you ever rename a page or change
+the nav links, make that edit in all four files, not just one.
 
 ---
 
 ## How to update this site (no coding experience needed)
 
-Every change below is made in one of the five page files listed above,
+Every change below is made in one of the four page files listed above,
 using GitHub's built-in editor:
 
 1. Go to the right file on GitHub (e.g. `work.html` to edit the Work page).
@@ -67,7 +66,7 @@ Photos and screenshots of any size or shape will display nicely — you don't
 need to crop or resize before uploading (though smaller files, ideally under
 ~1–2 MB, will make the page load faster).
 
-### Add a new project to "Selected Work"
+### Add a new project to "Portfolio"
 
 In `work.html`, find any existing project block — it starts with
 `<!-- Project` and a number, and ends at the matching closing `</div>` right
