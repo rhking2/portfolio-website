@@ -327,6 +327,37 @@ a { color: inherit; text-decoration: none; }
    screenshot) so it doesn't stretch too wide. */
 .project-media--narrow img { max-width: 260px; }
 
+/* A clickable video thumbnail: wrap an <img> in an <a class="media-video-link">
+   and add a <span class="play-button"> after it (see the UGC project in
+   work.html for an example) to link an image to an external video with a
+   play icon overlaid on top. */
+.media-video-link {
+  position: relative;
+  display: inline-block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(44, 50, 71, .8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .5);
+  transition: transform .2s, background .2s;
+}
+.play-button svg { margin-left: 3px; }
+
+.media-video-link:hover .play-button {
+  background: var(--sage-dark);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
 /* Use on a project-media with two images to show them side by side. */
 .project-media--pair {
   display: grid;

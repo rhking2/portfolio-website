@@ -84,6 +84,15 @@ tall/narrow image (like a phone screenshot), `project-media--pair` for two
 images side by side, or `project-media--stack` for one big image with a
 `project-media--pair` of two smaller ones stacked beneath it.
 
+### Link an image to a video (with a play button)
+
+See the UGC & Content Creation project in `work.html`: the image is wrapped
+in `<a class="media-video-link" href="...">` with a
+`<span class="play-button">` after it. Copy that pattern onto any other
+image, and change the `href` to your video link (Google Drive, YouTube,
+TikTok, etc.). If it's a Google Drive link, make sure its sharing is set to
+"Anyone with the link can view," or visitors won't be able to open it.
+
 ### Add a new job to "Resume"
 
 In `resume.html`, copy one whole `<article class="timeline-item">...</article>`
