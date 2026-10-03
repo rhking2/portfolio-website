@@ -169,7 +169,7 @@ a { color: inherit; text-decoration: none; }
 .page-next:hover { color: var(--sage-dark); border-color: var(--sage-dark); }
 
 /* Home page: button-style links to the other pages (same look as the
-   hero's "View My Work" / "Download Resume" buttons). */
+   hero's "View My Portfolio" / "Download Resume" buttons). */
 .link-card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
