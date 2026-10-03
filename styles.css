@@ -225,7 +225,15 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 72px;
+}
+
+/* A divider line between projects (not above the first one). Targets
+   any project that follows another, so it keeps working automatically
+   if a project is added, removed, or reordered. */
+.project + .project {
+  padding-top: 56px;
+  border-top: 1px solid rgba(44, 50, 71, .18);
 }
 
 .project-media-left { grid-template-areas: "media copy"; }
@@ -426,8 +434,9 @@ a { color: inherit; text-decoration: none; }
     grid-template-columns: 1fr;
     grid-template-areas: none;
     gap: 28px;
-    margin-bottom: 72px;
+    margin-bottom: 48px;
   }
+  .project + .project { padding-top: 40px; }
   /* Reset the desktop-only named-area placement (grid-area: media/copy)
      back to auto here — otherwise the browser keeps trying to place
      each side using areas that no longer exist once grid-template-areas
