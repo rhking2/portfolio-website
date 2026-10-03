@@ -210,8 +210,6 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 32px;
 }
 
-.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
-
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -537,8 +535,6 @@ a { color: inherit; text-decoration: none; }
 
   .section { padding: 56px 20px 8px; }
   .hero { min-height: auto; padding-top: 48px; padding-bottom: 48px; }
-  .hero-cta { flex-direction: column; align-items: stretch; }
-  .hero-cta .btn { text-align: center; }
 
   .project-media img,
   .project-media--narrow img { max-width: 100%; }
