@@ -79,14 +79,14 @@
        Each project is one self-contained block below — copy an entire
        block (from "<div class="project" to the closing "</div>" for that
        project) to add a new one, then edit the text and image inside it.
-       Alternate the class "project-media-right" / "project-media-left"
-       on new blocks so image and text zig-zag left/right down the page. -->
+       Keep "project-copy" first and "project-media" second in each block
+       so the title/description always appears before the photo(s). -->
   <section id="work" class="section work">
     <h2 class="section-title">Selected Work</h2>
     <p class="section-sub">A few projects spanning paid media, e-commerce, content, and email marketing.</p>
 
     <!-- Project 1 -->
-    <div class="project project-media-right">
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 01</span>
         <h3>Paid Media</h3>
@@ -103,11 +103,7 @@
     </div>
 
     <!-- Project 2 -->
-    <div class="project project-media-left">
-      <div class="project-media project-media--pair">
-        <img src="assets/img/ecommerce-site.jpg" alt="Rodeo Rebel Shopify website homepage" width="1200" height="1552" loading="lazy">
-        <img src="assets/img/ecommerce-etsy.jpg" alt="RodeoRebelCo Etsy shop page showing 5.0 star rating and reviews" width="1200" height="1500" loading="lazy">
-      </div>
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 02</span>
         <h3>E-Commerce &amp; Branding</h3>
@@ -118,10 +114,14 @@
           <li><span class="star">✦</span>Drove online sales with Meta ads, Instagram, and vendor events</li>
         </ul>
       </div>
+      <div class="project-media project-media--pair">
+        <img src="assets/img/ecommerce-site.jpg" alt="Rodeo Rebel Shopify website homepage" width="1200" height="1552" loading="lazy">
+        <img src="assets/img/ecommerce-etsy.jpg" alt="RodeoRebelCo Etsy shop page showing 5.0 star rating and reviews" width="1200" height="1500" loading="lazy">
+      </div>
     </div>
 
     <!-- Project 3 -->
-    <div class="project project-media-right">
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 03</span>
         <h3>UGC &amp; Content Creation</h3>
@@ -137,10 +137,7 @@
     </div>
 
     <!-- Project 4 -->
-    <div class="project project-media-left">
-      <div class="project-media">
-        <img src="assets/img/email-automation.jpg" alt="National Youth Opera Academy recruitment email" width="1000" height="1250" loading="lazy">
-      </div>
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 04</span>
         <h3>Email Marketing &amp; Automation</h3>
@@ -150,10 +147,13 @@
           <li><span class="star">✦</span>Built recruitment automation journeys from sign-up through parent interviews and acceptance</li>
         </ul>
       </div>
+      <div class="project-media">
+        <img src="assets/img/email-automation.jpg" alt="National Youth Opera Academy recruitment email" width="1000" height="1250" loading="lazy">
+      </div>
     </div>
 
     <!-- Project 5 -->
-    <div class="project project-media-right">
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 05</span>
         <h3>Paid Placement &amp; Copywriting</h3>
@@ -171,14 +171,7 @@
     <!-- Project 6 (one big photo plus two smaller images stacked beneath it —
          use "project-media--stack" on project-media, with a nested
          "project-media--pair" div for the two smaller images) -->
-    <div class="project project-media-left">
-      <div class="project-media project-media--stack">
-        <img src="assets/img/creative-direction-opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" width="1600" height="1190" loading="lazy">
-        <div class="project-media--pair">
-          <img src="assets/img/creative-direction-postcard-fall2025.jpg" alt="Vocal auditions postcard for Fall 2025" width="1000" height="726" loading="lazy">
-          <img src="assets/img/creative-direction-postcard-cities.jpg" alt="Vocal auditions postcard listing chapter cities" width="1000" height="726" loading="lazy">
-        </div>
-      </div>
+    <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 06</span>
         <h3>Creative Direction</h3>
@@ -187,6 +180,13 @@
           <li><span class="star">✦</span>Photography: directed and captured flagship photography at the Sydney Opera House during the 2025 International Tour, now used across web, social, and print</li>
           <li><span class="star">✦</span>Print: wrote and art directed audition recruitment postcards distributed across eight chapter cities and at conferences</li>
         </ul>
+      </div>
+      <div class="project-media project-media--stack">
+        <img src="assets/img/creative-direction-opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" width="1600" height="1190" loading="lazy">
+        <div class="project-media--pair">
+          <img src="assets/img/creative-direction-postcard-fall2025.jpg" alt="Vocal auditions postcard for Fall 2025" width="1000" height="726" loading="lazy">
+          <img src="assets/img/creative-direction-postcard-cities.jpg" alt="Vocal auditions postcard listing chapter cities" width="1000" height="726" loading="lazy">
+        </div>
       </div>
     </div>
 

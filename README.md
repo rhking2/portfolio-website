@@ -65,11 +65,11 @@ block, paste it in, and edit:
 - the title, description, and any stats
 - the image `src` (see "Swap a photo" above for uploading it first)
 
-Alternate `project-media-right` and `project-media-left` on each new block
-so the image zig-zags from side to side down the page. For the image side:
-use `project-media--narrow` on a `project-media` div for one tall/narrow
-image (like a phone screenshot), `project-media--pair` for two images side
-by side, or `project-media--stack` for one big image with a
+Keep `project-copy` first and `project-media` second inside the block, so
+the title and description always appear before the photo(s). For the image
+side: use `project-media--narrow` on a `project-media` div for one
+tall/narrow image (like a phone screenshot), `project-media--pair` for two
+images side by side, or `project-media--stack` for one big image with a
 `project-media--pair` of two smaller ones stacked beneath it.
 
 ### Add a new job to "Experience"
