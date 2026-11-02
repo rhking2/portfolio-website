@@ -67,6 +67,38 @@ siteNav.querySelectorAll('a').forEach((link) => {
     }
   }
 
+  // Never let a corner drawing sit behind a big heading (e.g. your name):
+  // if they would overlap, move the drawing down below the heading.
+  // Re-checked once fonts load and when the window is resized, since
+  // both change how wide the heading is.
+  const heading = document.querySelector('.hero-name');
+  const cornerEls = [];
+  function keepClear(el) {
+    if (!heading) return;
+    if (!cornerEls.includes(el)) cornerEls.push(el);
+    el.style.top = '';
+    el.style.bottom = '';
+    const lines = [...heading.querySelectorAll('.line')].map((l) => l.getBoundingClientRect());
+    const text = {
+      left: Math.min(...lines.map((b) => b.left)),
+      right: Math.max(...lines.map((b) => b.right)),
+      top: Math.min(...lines.map((b) => b.top)),
+      bottom: Math.max(...lines.map((b) => b.bottom)),
+    };
+    const r = el.getBoundingClientRect();
+    if (r.left < text.right && r.right > text.left && r.top < text.bottom && r.bottom > text.top) {
+      el.style.top = Math.round(text.bottom + window.scrollY + 12) + 'px';
+      el.style.bottom = 'auto';
+    }
+  }
+  const recheck = () => cornerEls.forEach(keepClear);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(recheck);
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(recheck, 150);
+  });
+
   spots.forEach((spot) => {
     const el = document.createElement('div');
     el.className = 'floral ' + spot.cls;
@@ -81,6 +113,7 @@ siteNav.querySelectorAll('a').forEach((link) => {
         paths.forEach((p, i) => {
           p.style.setProperty('--d', (i / paths.length * 1.8).toFixed(2) + 's');
         });
+        if (!spot.top) keepClear(el);
         if (drawObserver) drawObserver.observe(el);
         else el.classList.add('drawn');
       })

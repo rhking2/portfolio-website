@@ -212,7 +212,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   font-size: clamp(3rem, 9vw, 6.5rem);
 }
 
-.hero-name .line { display: block; }
+.hero-name .line { display: inline-block; }
 .line.dark { color: var(--navy); }
 .line.accent { color: var(--sage); }
 
@@ -516,26 +516,46 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 /* Contact */
 
+/* Contact links as bubbles (same look as the Resume page's Skills/Tools
+   bubbles). The whole bubble is the clickable link. */
 .contact-grid {
+  list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px 60px;
+  gap: 16px;
   max-width: 640px;
   margin: 0;
-  padding-left: 20px; /* room for the round bullets */
+  padding: 0;
 }
-.contact-grid li { font-size: 1.15rem; color: var(--navy); }
 
 .contact-item {
-  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 56px;
+  padding: 12px 24px;
+  background: var(--white);
+  border: 1px solid rgba(44, 50, 71, .15);
+  border-radius: 999px;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--navy);
-  border-bottom: 1px solid transparent;
-  width: fit-content;
-  transition: color .2s, border-color .2s;
+  overflow-wrap: anywhere;
+  transition: color .2s, border-color .2s, transform .2s;
 }
 
-.contact-item:hover { color: var(--sage-dark); border-color: var(--sage-dark); }
+/* Phones: stack the contact bubbles in one column. */
+@media (max-width: 640px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-item:hover,
+.contact-item:focus-visible {
+  color: var(--sage-dark);
+  border-color: var(--sage-dark);
+  transform: translateY(-2px);
+}
 
 /* Footer */
 .site-footer {
@@ -579,7 +599,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 
-  .contact-grid { grid-template-columns: 1fr; }
   .link-card-grid { grid-template-columns: 1fr; }
 }
 
@@ -626,46 +645,21 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 /* Very small phones: tighten type scale a touch more. */
 @media (max-width: 380px) {
-  .hero-name { font-size: clamp(2.6rem, 14vw, 3.4rem); }
   .section-title { font-size: 1.7rem; }
 }
 
 /* ==========================================================
-   DECORATION — name florals, background drawings, fade-ins.
+   DECORATION — one-line headings, background drawings, fade-ins.
    The artwork lives in assets/florals/ (original line art). The
    background pieces are added by script.js; their color is the
    --floral token at the top of this file.
    ========================================================== */
 
-/* Home: name on one line. Sized to always fit the screen width. */
-.hero .hero-name {
+/* Big two-tone headings ("Robin Harwell", "Get In Touch") on one line,
+   sized to always fit the screen width. */
+.hero-name {
   white-space: nowrap;
   font-size: min(7.5rem, 11.4vw);
-}
-.hero .hero-name .line { display: inline-block; }
-
-/* Big two-tone headings ("Robin Harwell", "Get In Touch"): fine floral
-   line art in the background mint, showing only inside the letters. */
-.hero-name .line { width: fit-content; }
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  .hero-name .line {
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-repeat: no-repeat;
-    /* Larger than the letters, so the flowers read at a good size. */
-    background-size: auto 150%;
-  }
-  .hero-name .line.dark {
-    background-image: url("assets/florals/name-pattern.svg?v=4");
-    background-color: var(--navy);
-    background-position: left center;
-  }
-  .hero-name .line.accent {
-    background-image: url("assets/florals/name-pattern.svg?v=4");
-    background-color: var(--sage);
-    background-position: right center;
-  }
 }
 
 /* Layer behind all content that holds the drawings. */
@@ -715,9 +709,4 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   .floral path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
   .floral .ink { opacity: 1; }
   .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-/* Phones: fewer, bigger flowers inside the letters so they stay crisp. */
-@media (max-width: 720px) {
-  .hero-name .line { background-size: auto 230%; }
 }

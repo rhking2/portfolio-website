@@ -134,9 +134,6 @@ look like it didn't work.
 
 ### Wildflower & vine decorations
 
-- **Wildflowers inside "Robin Harwell" / "Get In Touch":** the line art is
-  `assets/florals/name-pattern.svg`. To turn it off, delete the
-  `@supports` block under "DECORATION" in `styles.css`.
 - **Background drawings:** their color is `--floral` at the top of
   `styles.css` (e.g. try a cream like `#efe6cf`). The artwork files are
   `corner-bouquet.svg`, `wildflowers.svg`, `side-sprig.svg`, and
