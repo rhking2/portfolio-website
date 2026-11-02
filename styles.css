@@ -676,25 +676,24 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 .floral svg { display: block; width: 100%; height: auto; }
 
-/* Where each drawing sits. On wide screens the corner pieces are sized
-   to the side margins so they stay clear of the content. */
-.fl-top-right   { top: 70px;  right: -30px; width: clamp(190px, calc((100vw - var(--max)) / 2 + 150px), 400px); }
-.fl-bottom-left { bottom: 0;  left: 0; width: clamp(140px, calc((100vw - var(--max)) / 2 + 40px), 300px); }
-.fl-side-left   { left: clamp(0px, 2vw, 30px);   width: 150px; }
-.fl-side-right  { right: clamp(0px, 2vw, 30px);  width: 165px; }
-
-/* "Draw in" animation: each line traces itself once, when in view. */
+/* Each drawing traces itself in like a pen, lingers, then is erased
+   from the start of each line to the end, like a pencil eraser. */
 .floral path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.6s ease-in-out var(--d, 0s);
+  transition: stroke-dashoffset 2s ease-in-out var(--d, 0s);
 }
 .floral.drawn path { stroke-dashoffset: 0; }
+.floral.erased path {
+  stroke-dashoffset: -1;
+  transition-duration: 1.6s;
+}
 /* Shapes filled with the page color let front petals hide what's behind
-   them; small solid details (flower centers, buds) fade in. */
+   them; small solid details (flower centers, buds) fade in and out. */
 .floral .occ { fill: var(--bg); }
-.floral .ink { opacity: 0; transition: opacity 1.2s ease var(--d, 0s); }
+.floral .ink { opacity: 0; transition: opacity 1s ease var(--d, 0s); }
 .floral.drawn .ink { opacity: 1; }
+.floral.erased .ink { opacity: 0; }
 
 /* Sections softly fade up as they scroll into view. */
 .reveal {
