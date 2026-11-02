@@ -504,6 +504,20 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   font-size: .95rem;
 }
 
+/* Tool chips: a small logo (assets/icons/*.svg) before the tool name. */
+.tool-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 14px;
+}
+.tool-chips img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.tool-chips img + img { margin-left: -2px; }
+
 /* Contact */
 .contact-title { margin-bottom: var(--space-gap); }
 

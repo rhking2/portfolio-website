@@ -1,0 +1,16 @@
+Tool icons used on the Resume page (resume.html, "Tools" section).
+All recolored to the site's navy (#2c3247).
+
+Brand logos — Simple Icons (https://simpleicons.org), CC0 1.0:
+  mailchimp.svg, canva.svg, adobe.svg, meta.svg, wordpress.svg,
+  etsy.svg, shopify.svg, google.svg
+  Brand names and logos are trademarks of their respective owners.
+
+Generic placeholder symbols — Material Design Icons
+(https://pictogrammers.com/library/mdi/), Apache License 2.0:
+  crm.svg        (mdi "database")
+  donorbox.svg   (mdi "hand-heart")      — placeholder, not Donorbox's logo
+  accredible.svg (mdi "certificate")     — placeholder, not Accredible's logo
+  wufoo.svg      (mdi "clipboard-text")  — placeholder, not Wufoo's logo
+
+To swap in a real logo, replace the .svg file with one of the same name.

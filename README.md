@@ -109,6 +109,10 @@ In `resume.html`, under "Skills" (grouped under three small headings) or
 "Tools," each item is one `<li>Skill Name</li>` line — add, remove, or edit
 a line to update the list.
 
+Each tool has a small logo from `assets/icons/`. To change a tool's logo,
+replace its `.svg` file there with one of the same name (see
+`assets/icons/ATTRIBUTION.txt` for which icons are placeholders).
+
 ### Update contact info or resume
 
 - Phone/email/LinkedIn: edit the matching line in `contact.html`.
