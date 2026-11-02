@@ -658,12 +658,12 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
     background-size: auto 150%;
   }
   .hero-name .line.dark {
-    background-image: url("assets/florals/name-pattern.svg");
+    background-image: url("assets/florals/name-pattern.svg?v=2");
     background-color: var(--navy);
     background-position: left center;
   }
   .hero-name .line.accent {
-    background-image: url("assets/florals/name-pattern.svg");
+    background-image: url("assets/florals/name-pattern.svg?v=2");
     background-color: var(--sage);
     background-position: right center;
   }

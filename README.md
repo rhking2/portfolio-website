@@ -128,8 +128,8 @@ comment explaining what it controls. Change a value there and it updates
 everywhere that color is used, on every page.
 
 **After any change to `styles.css` or `script.js`:** in all four page
-files, bump the number in `styles.css?v=4` / `script.js?v=4` (e.g. to
-`?v=5`). Browsers keep the old copy for a while otherwise, so a change can
+files, bump the number after `styles.css?v=` / `script.js?v=` by one
+(e.g. `?v=5` → `?v=6`). Browsers keep the old copy for a while otherwise, so a change can
 look like it didn't work.
 
 ### Floral & celestial decorations
