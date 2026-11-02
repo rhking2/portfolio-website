@@ -446,12 +446,8 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   border-top: 1px solid rgba(44, 50, 71, .2);
 }
 /* The first subsection ("Work Experience") sits right under the page
-   heading, so it has no divider line above it. */
-.subsection--first {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
+   heading row, which already supplies the space above its divider line. */
+.subsection--first { margin-top: 0; }
 
 /* Direct-child selector — a subsection can now contain a nested .timeline
    (e.g. "Additional Experience"), and this must only style the subsection's
