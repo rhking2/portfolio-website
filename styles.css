@@ -657,12 +657,12 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
     background-size: auto 150%;
   }
   .hero-name .line.dark {
-    background-image: url("assets/florals/name-pattern.svg?v=3");
+    background-image: url("assets/florals/name-pattern.svg?v=4");
     background-color: var(--navy);
     background-position: left center;
   }
   .hero-name .line.accent {
-    background-image: url("assets/florals/name-pattern.svg?v=3");
+    background-image: url("assets/florals/name-pattern.svg?v=4");
     background-color: var(--sage);
     background-position: right center;
   }
@@ -696,6 +696,11 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   transition: stroke-dashoffset 2.6s ease-in-out var(--d, 0s);
 }
 .floral.drawn path { stroke-dashoffset: 0; }
+/* Shapes filled with the page color let front petals hide what's behind
+   them; small solid details (flower centers, buds) fade in. */
+.floral .occ { fill: var(--bg); }
+.floral .ink { opacity: 0; transition: opacity 1.2s ease var(--d, 0s); }
+.floral.drawn .ink { opacity: 1; }
 
 /* Sections softly fade up as they scroll into view. */
 .reveal {
@@ -708,6 +713,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 /* Visitors who turn on "reduce motion": everything shows, nothing moves. */
 @media (prefers-reduced-motion: reduce) {
   .floral path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
+  .floral .ink { opacity: 1; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 

@@ -72,7 +72,7 @@ siteNav.querySelectorAll('a').forEach((link) => {
     el.className = 'floral ' + spot.cls;
     if (spot.top) el.style.top = spot.top + 'px';
     layer.appendChild(el);
-    fetch('assets/florals/' + spot.art + '.svg?v=2')
+    fetch('assets/florals/' + spot.art + '.svg?v=3')
       .then((r) => (r.ok ? r.text() : ''))
       .then((svg) => {
         if (!svg) return;
