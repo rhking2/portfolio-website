@@ -152,13 +152,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   margin: 0 0 8px;
 }
 
-.section-sub {
-  color: var(--ink);
-  opacity: .8;
-  max-width: 640px;
-  margin: 0 0 var(--space-gap);
-}
-
 /* A title + action (e.g. a "Download PDF" button) side by side on one row. */
 .section-headrow {
   display: flex;
@@ -166,7 +159,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-gap);
 }
 .section-headrow .section-title { margin-bottom: 0; }
 
@@ -264,8 +257,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 
 /* Work / Projects */
-/* This page has no .section-sub subtitle under the heading, so give the
-   title its own breathing room before the first project. */
+/* Same gap below the page title as the Resume page's heading row. */
 .work .section-title { margin-bottom: var(--space-gap); }
 
 .project {
@@ -452,6 +444,13 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   margin-top: var(--space-gap);
   padding-top: var(--space-gap);
   border-top: 1px solid rgba(44, 50, 71, .2);
+}
+/* The first subsection ("Work Experience") sits right under the page
+   heading, so it has no divider line above it. */
+.subsection--first {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 /* Direct-child selector — a subsection can now contain a nested .timeline
