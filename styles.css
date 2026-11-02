@@ -516,7 +516,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   height: 18px;
   flex-shrink: 0;
 }
-.tool-chips img + img { margin-left: -2px; }
 
 /* Contact */
 .contact-title { margin-bottom: var(--space-gap); }
