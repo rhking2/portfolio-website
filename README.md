@@ -132,20 +132,25 @@ files, bump the number after `styles.css?v=` / `script.js?v=` by one
 (e.g. `?v=5` → `?v=6`). Browsers keep the old copy for a while otherwise, so a change can
 look like it didn't work.
 
-### Floral & celestial decorations
+### Wildflower & vine decorations
 
-- **Florals inside "Robin Harwell" / "Get In Touch":** the line art is
+- **Wildflowers inside "Robin Harwell" / "Get In Touch":** the line art is
   `assets/florals/name-pattern.svg`. To turn it off, delete the
   `@supports` block under "DECORATION" in `styles.css`.
-- **Background drawings and twinkling stars:** their colors are
-  `--floral`, `--twinkle`, and `--twinkle-edge` at the top of
-  `styles.css` (e.g. try a cream like `#efe6cf` for `--floral`). The
-  artwork files are `moon-bouquet.svg`, `wildflowers.svg`,
-  `side-sprig.svg`, and `constellation.svg` in `assets/florals/`.
-- To turn off all background drawings, stars, and scroll fade-ins, delete
-  the "Decoration" block at the bottom of `script.js`.
+- **Background drawings:** their color is `--floral` at the top of
+  `styles.css` (e.g. try a cream like `#efe6cf`). The artwork files are
+  `corner-bouquet.svg`, `wildflowers.svg`, `side-sprig.svg`, and
+  `vine.svg` in `assets/florals/`.
+- To turn off the background drawings and scroll fade-ins, delete the
+  "Decoration" block at the bottom of `script.js`.
 - Visitors whose device is set to "reduce motion" automatically see
   everything still, without animation.
+
+### Browser tab icon
+
+The RH circle icon is `favicon-32.png`, `favicon-48.png`,
+`favicon-192.png`, and `apple-touch-icon.png` (iPhone home screen) in the
+main folder. Replace them with same-named files to change it.
 
 ---
 

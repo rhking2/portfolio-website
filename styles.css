@@ -6,13 +6,11 @@
   --bg-alt: #ddf3ef;    /* unused accent background */
   --navy: #2c3247;      /* headings, buttons, dark text */
   --sage: #86ac9f;      /* accent green (name highlight, "Touch") */
-  --sage-dark: #6c9689; /* accent green, hover states, stars */
+  --sage-dark: #6c9689; /* accent green, hover states */
   --ink: #38405a;       /* body text */
   --line: #2c3247;      /* the vertical rail line */
   --divider: rgba(44, 50, 71, .2); /* thin horizontal lines between sections */
-  --floral: #c4e2db;    /* the faint botanical/moon drawings in the background */
-  --twinkle: #fffaf0;   /* the twinkling eight-pointed stars (cream) */
-  --twinkle-edge: #c4e2db; /* their faint outline */
+  --floral: #c4e2db;    /* the faint wildflower/vine drawings in the background */
   --white: #ffffff;
   --radius: 14px;
   --max: 1160px;        /* max content width */
@@ -49,8 +47,6 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 a { color: inherit; text-decoration: none; }
-
-.star { color: var(--sage-dark); margin-right: .5em; font-size: .85em; }
 
 /* Rail */
 .rail {
@@ -315,10 +311,10 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 .project-copy p { max-width: 480px; }
 
+/* Regular round bullets, same as the job bullets on the Resume page. */
 .stat-list {
-  list-style: none;
-  padding: 0;
   margin: 20px 0 0;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -525,7 +521,10 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   grid-template-columns: 1fr 1fr;
   gap: 24px 60px;
   max-width: 640px;
+  margin: 0;
+  padding-left: 20px; /* room for the round bullets */
 }
+.contact-grid li { font-size: 1.15rem; color: var(--navy); }
 
 .contact-item {
   font-size: 1.15rem;
@@ -632,10 +631,10 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 
 /* ==========================================================
-   DECORATION — name florals, background drawings, stars, fade-ins.
+   DECORATION — name florals, background drawings, fade-ins.
    The artwork lives in assets/florals/ (original line art). The
-   background pieces and stars are added by script.js; colors are the
-   --floral / --twinkle tokens at the top of this file.
+   background pieces are added by script.js; their color is the
+   --floral token at the top of this file.
    ========================================================== */
 
 /* Home: name on one line. Sized to always fit the screen width. */
@@ -658,18 +657,18 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
     background-size: auto 150%;
   }
   .hero-name .line.dark {
-    background-image: url("assets/florals/name-pattern.svg?v=2");
+    background-image: url("assets/florals/name-pattern.svg?v=3");
     background-color: var(--navy);
     background-position: left center;
   }
   .hero-name .line.accent {
-    background-image: url("assets/florals/name-pattern.svg?v=2");
+    background-image: url("assets/florals/name-pattern.svg?v=3");
     background-color: var(--sage);
     background-position: right center;
   }
 }
 
-/* Layer behind all content that holds the drawings and stars. */
+/* Layer behind all content that holds the drawings. */
 .florals {
   position: absolute;
   inset: 0;
@@ -698,20 +697,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 .floral.drawn path { stroke-dashoffset: 0; }
 
-/* Twinkling eight-pointed stars. */
-.twinkle {
-  position: absolute;
-  fill: var(--twinkle);
-  stroke: var(--twinkle-edge);
-  stroke-width: 1;
-  opacity: 0;
-  animation: twinkle var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0; transform: scale(.6) rotate(0deg); }
-  50%      { opacity: 1; transform: scale(1) rotate(20deg); }
-}
-
 /* Sections softly fade up as they scroll into view. */
 .reveal {
   opacity: 0;
@@ -723,7 +708,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 /* Visitors who turn on "reduce motion": everything shows, nothing moves. */
 @media (prefers-reduced-motion: reduce) {
   .floral path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
-  .twinkle { animation: none; opacity: .8; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 
