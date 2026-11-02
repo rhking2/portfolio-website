@@ -105,9 +105,9 @@ date, title, company, and bullet points.
 
 ### Add or remove a skill or tool
 
-In `resume.html`, under "Skills" (grouped under three small headings) or
-"Tools," each item is one `<li>Skill Name</li>` line — add, remove, or edit
-a line to update the list.
+In `resume.html`, under "Skills" or "Tools," each item is one
+`<li>Skill Name</li>` line — add, remove, or edit a line to update the list.
+The bubbles arrange themselves into even columns automatically.
 
 Each tool has a small logo from `assets/icons/`. To change a tool's logo,
 replace its `.svg` file there with one of the same name (see
@@ -126,6 +126,10 @@ replace its `.svg` file there with one of the same name (see
 All colors live in one place at the very top of `styles.css`, each with a
 comment explaining what it controls. Change a value there and it updates
 everywhere that color is used, on every page.
+
+**After any change to `styles.css`:** in all four page files, bump the
+number in `href="styles.css?v=3"` (e.g. to `?v=4`). Browsers keep the old
+styles for a while otherwise, so a change can look like it didn't work.
 
 ---
 

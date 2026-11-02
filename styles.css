@@ -9,6 +9,7 @@
   --sage-dark: #6c9689; /* accent green, hover states, stars */
   --ink: #38405a;       /* body text */
   --line: #2c3247;      /* the vertical rail line */
+  --divider: rgba(44, 50, 71, .2); /* thin horizontal lines between sections */
   --white: #ffffff;
   --radius: 14px;
   --max: 1160px;        /* max content width */
@@ -20,6 +21,8 @@
   --space-top: 64px;     /* below the header, before a page's first content */
   --space-gap: 48px;     /* between major blocks, and around divider lines */
   --space-bottom: 80px;  /* after a page's last content, before the footer */
+
+  --chip-col: 230px;     /* narrowest width of a Skills/Tools bubble column */
 }
 
 * { box-sizing: border-box; }
@@ -152,6 +155,16 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   margin: 0 0 8px;
 }
 
+/* Every page's top heading block gets a divider line beneath it, with the
+   same space above and below the line on every page. */
+.section .page-head {
+  padding-bottom: var(--space-gap);
+  margin-bottom: var(--space-gap);
+  border-bottom: 1px solid var(--divider);
+}
+/* Home: the About section below already adds its own space on top. */
+.section.hero .page-head { margin-bottom: 0; }
+
 /* A title + action (e.g. a "Download PDF" button) side by side on one row. */
 .section-headrow {
   display: flex;
@@ -159,7 +172,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  margin-bottom: var(--space-gap);
 }
 .section-headrow .section-title { margin-bottom: 0; }
 
@@ -257,8 +269,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 
 /* Work / Projects */
-/* Same gap below the page title as the Resume page's heading row. */
-.work .section-title { margin-bottom: var(--space-gap); }
 
 .project {
   display: grid;
@@ -274,7 +284,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
    below the line. */
 .project + .project {
   padding-top: var(--space-gap);
-  border-top: 1px solid rgba(44, 50, 71, .18);
+  border-top: 1px solid var(--divider);
 }
 
 /* The "Next →" link below the last project brings its own top spacing. */
@@ -443,11 +453,15 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 .subsection {
   margin-top: var(--space-gap);
   padding-top: var(--space-gap);
-  border-top: 1px solid rgba(44, 50, 71, .2);
+  border-top: 1px solid var(--divider);
 }
 /* The first subsection ("Work Experience") sits right under the page
-   heading row, which already supplies the space above its divider line. */
-.subsection--first { margin-top: 0; }
+   heading, whose own divider line already sits above it. */
+.subsection--first {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
 
 /* Direct-child selector — a subsection can now contain a nested .timeline
    (e.g. "Additional Experience"), and this must only style the subsection's
@@ -462,30 +476,17 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
    needs space below its own heading before the first job. */
 .subsection .timeline { margin-top: 24px; }
 
-/* Skills */
-/* Each labeled group of skill chips (e.g. "Content & Creative"). */
-.skill-group { margin-top: 24px; }
-/* A chip list directly under a subsection heading (e.g. "Tools") gets the
-   same space below the heading as the first skill group does. */
+/* Skills & Tools */
 .subsection > h3 + .skill-chips { margin-top: 20px; }
-.skill-group:first-of-type { margin-top: 20px; }
-
-.skill-group-title {
-  font-family: var(--font-head);
-  font-weight: 700;
-  color: var(--sage-dark);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  font-size: .8rem;
-  margin: 0 0 12px;
-}
 
 .skill-chips {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
+  /* Equal-width columns, so the bubbles line up in neat rows and columns.
+     The number of columns adjusts to the screen width automatically. */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--chip-col), 100%), 1fr));
   gap: 12px;
 }
 
@@ -501,7 +502,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 /* Tool chips: a small logo (assets/icons/*.svg) before the tool name. */
 .tool-chips li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   padding-left: 14px;
@@ -513,7 +514,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 
 /* Contact */
-.contact-title { margin-bottom: var(--space-gap); }
 
 .contact-grid {
   display: grid;
