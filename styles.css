@@ -10,6 +10,9 @@
   --ink: #38405a;       /* body text */
   --line: #2c3247;      /* the vertical rail line */
   --divider: rgba(44, 50, 71, .2); /* thin horizontal lines between sections */
+  --floral: #c4e2db;    /* the faint botanical/moon drawings in the background */
+  --twinkle: #fffaf0;   /* the twinkling eight-pointed stars (cream) */
+  --twinkle-edge: #c4e2db; /* their faint outline */
   --white: #ffffff;
   --radius: 14px;
   --max: 1160px;        /* max content width */
@@ -30,6 +33,7 @@
 html { scroll-behavior: smooth; }
 
 body {
+  position: relative; /* anchors the background drawings layer */
   margin: 0;
   background: var(--bg);
   color: var(--ink);
@@ -238,6 +242,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); }
 
 .btn-ghost {
+  background: var(--bg); /* solid, so background drawings don't show through */
   border: 2px solid var(--navy);
   color: var(--navy);
 }
@@ -624,4 +629,105 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 @media (max-width: 380px) {
   .hero-name { font-size: clamp(2.6rem, 14vw, 3.4rem); }
   .section-title { font-size: 1.7rem; }
+}
+
+/* ==========================================================
+   DECORATION — name florals, background drawings, stars, fade-ins.
+   The artwork lives in assets/florals/ (original line art). The
+   background pieces and stars are added by script.js; colors are the
+   --floral / --twinkle tokens at the top of this file.
+   ========================================================== */
+
+/* Home: name on one line. Sized to always fit the screen width. */
+.hero .hero-name {
+  white-space: nowrap;
+  font-size: min(7.5rem, 11.4vw);
+}
+.hero .hero-name .line { display: inline-block; }
+
+/* Big two-tone headings ("Robin Harwell", "Get In Touch"): fine floral
+   line art in the background mint, showing only inside the letters. */
+.hero-name .line { width: fit-content; }
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .hero-name .line {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-repeat: no-repeat;
+    /* Larger than the letters, so the flowers read at a good size. */
+    background-size: auto 150%;
+  }
+  .hero-name .line.dark {
+    background-image: url("assets/florals/name-pattern.svg");
+    background-color: var(--navy);
+    background-position: left center;
+  }
+  .hero-name .line.accent {
+    background-image: url("assets/florals/name-pattern.svg");
+    background-color: var(--sage);
+    background-position: right center;
+  }
+}
+
+/* Layer behind all content that holds the drawings and stars. */
+.florals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.floral {
+  position: absolute;
+  color: var(--floral);
+}
+.floral svg { display: block; width: 100%; height: auto; }
+
+/* Where each drawing sits. On wide screens the corner pieces are sized
+   to the side margins so they stay clear of the content. */
+.fl-top-right   { top: 70px;  right: -30px; width: clamp(190px, calc((100vw - var(--max)) / 2 + 150px), 400px); }
+.fl-bottom-left { bottom: 0;  left: 0; width: clamp(140px, calc((100vw - var(--max)) / 2 + 40px), 300px); }
+.fl-side-left   { left: clamp(0px, 2vw, 30px);   width: 150px; }
+.fl-side-right  { right: clamp(0px, 2vw, 30px);  width: 165px; }
+
+/* "Draw in" animation: each line traces itself once, when in view. */
+.floral path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s ease-in-out var(--d, 0s);
+}
+.floral.drawn path { stroke-dashoffset: 0; }
+
+/* Twinkling eight-pointed stars. */
+.twinkle {
+  position: absolute;
+  fill: var(--twinkle);
+  stroke: var(--twinkle-edge);
+  stroke-width: 1;
+  opacity: 0;
+  animation: twinkle var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(.6) rotate(0deg); }
+  50%      { opacity: 1; transform: scale(1) rotate(20deg); }
+}
+
+/* Sections softly fade up as they scroll into view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* Visitors who turn on "reduce motion": everything shows, nothing moves. */
+@media (prefers-reduced-motion: reduce) {
+  .floral path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
+  .twinkle { animation: none; opacity: .8; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Phones: fewer, bigger flowers inside the letters so they stay crisp. */
+@media (max-width: 720px) {
+  .hero-name .line { background-size: auto 230%; }
 }

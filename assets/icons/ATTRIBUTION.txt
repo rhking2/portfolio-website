@@ -8,7 +8,6 @@ Brand logos — Simple Icons (https://simpleicons.org), CC0 1.0:
 
 Generic placeholder symbols — Material Design Icons
 (https://pictogrammers.com/library/mdi/), Apache License 2.0:
-  crm.svg        (mdi "database")
   donorbox.svg   (mdi "hand-heart")      — placeholder, not Donorbox's logo
   accredible.svg (mdi "certificate")     — placeholder, not Accredible's logo
   wufoo.svg      (mdi "clipboard-text")  — placeholder, not Wufoo's logo

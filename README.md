@@ -127,9 +127,25 @@ All colors live in one place at the very top of `styles.css`, each with a
 comment explaining what it controls. Change a value there and it updates
 everywhere that color is used, on every page.
 
-**After any change to `styles.css`:** in all four page files, bump the
-number in `href="styles.css?v=3"` (e.g. to `?v=4`). Browsers keep the old
-styles for a while otherwise, so a change can look like it didn't work.
+**After any change to `styles.css` or `script.js`:** in all four page
+files, bump the number in `styles.css?v=4` / `script.js?v=4` (e.g. to
+`?v=5`). Browsers keep the old copy for a while otherwise, so a change can
+look like it didn't work.
+
+### Floral & celestial decorations
+
+- **Florals inside "Robin Harwell" / "Get In Touch":** the line art is
+  `assets/florals/name-pattern.svg`. To turn it off, delete the
+  `@supports` block under "DECORATION" in `styles.css`.
+- **Background drawings and twinkling stars:** their colors are
+  `--floral`, `--twinkle`, and `--twinkle-edge` at the top of
+  `styles.css` (e.g. try a cream like `#efe6cf` for `--floral`). The
+  artwork files are `moon-bouquet.svg`, `wildflowers.svg`,
+  `side-sprig.svg`, and `constellation.svg` in `assets/florals/`.
+- To turn off all background drawings, stars, and scroll fade-ins, delete
+  the "Decoration" block at the bottom of `script.js`.
+- Visitors whose device is set to "reduce motion" automatically see
+  everything still, without animation.
 
 ---
 
