@@ -103,10 +103,11 @@ In `resume.html`, copy one whole `<article class="timeline-item">...</article>`
 block, paste it above the others (newest role at the top), and edit the
 date, title, company, and bullet points.
 
-### Add or remove a skill
+### Add or remove a skill or tool
 
-In `resume.html`, under "Skills," each skill is one `<li>Skill Name</li>`
-line — add, remove, or edit a line to update the list.
+In `resume.html`, under "Skills" (grouped under three small headings) or
+"Tools," each item is one `<li>Skill Name</li>` line — add, remove, or edit
+a line to update the list.
 
 ### Update contact info or resume
 

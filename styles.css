@@ -470,6 +470,9 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 /* Skills */
 /* Each labeled group of skill chips (e.g. "Content & Creative"). */
 .skill-group { margin-top: 24px; }
+/* A chip list directly under a subsection heading (e.g. "Tools") gets the
+   same space below the heading as the first skill group does. */
+.subsection > h3 + .skill-chips { margin-top: 20px; }
 .skill-group:first-of-type { margin-top: 20px; }
 
 .skill-group-title {
