@@ -132,23 +132,6 @@ files, bump the number after `styles.css?v=` / `script.js?v=` by one
 (e.g. `?v=5` → `?v=6`). Browsers keep the old copy for a while otherwise, so a change can
 look like it didn't work.
 
-### Wildflower decorations
-
-Small, faint single-stem wildflowers (cosmos, poppies, grasses, a leafy
-sprig) appear around the page: each one draws itself in, lingers, erases
-itself, and reappears in a new empty spot. They never touch text,
-images, buttons, or lines.
-
-- **Color:** `--floral` at the top of `styles.css` (e.g. try a slightly
-  darker teal like `#b3d8cf` to make them more visible).
-- **Artwork:** the `m-*.svg` files in `assets/florals/`.
-- **How many / how fast:** the numbers near the top of the "Decoration"
-  block at the bottom of `script.js`.
-- To turn them (and the scroll fade-ins) off, delete that "Decoration"
-  block.
-- Visitors whose device is set to "reduce motion" see a few still
-  drawings instead, with no animation.
-
 ### Browser tab icon
 
 The RH circle icon is `favicon-32.png`, `favicon-48.png`,

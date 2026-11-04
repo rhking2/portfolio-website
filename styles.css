@@ -10,7 +10,6 @@
   --ink: #38405a;       /* body text */
   --line: #2c3247;      /* the vertical rail line */
   --divider: rgba(44, 50, 71, .2); /* thin horizontal lines between sections */
-  --floral: #c4e2db;    /* the faint wildflower/vine drawings in the background */
   --white: #ffffff;
   --radius: 14px;
   --max: 1160px;        /* max content width */
@@ -31,7 +30,6 @@
 html { scroll-behavior: smooth; }
 
 body {
-  position: relative; /* anchors the background drawings layer */
   margin: 0;
   background: var(--bg);
   color: var(--ink);
@@ -238,7 +236,7 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); }
 
 .btn-ghost {
-  background: var(--bg); /* solid, so background drawings don't show through */
+  background: transparent;
   border: 2px solid var(--navy);
   color: var(--navy);
 }
@@ -649,51 +647,14 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 
 /* ==========================================================
-   DECORATION — one-line headings, background drawings, fade-ins.
-   The artwork lives in assets/florals/ (original line art). The
-   background pieces are added by script.js; their color is the
-   --floral token at the top of this file.
+   ONE-LINE NAME & FADE-INS
    ========================================================== */
 
-/* Big two-tone headings ("Robin Harwell", "Get In Touch") on one line,
-   sized to always fit the screen width. */
+/* Home: "Robin Harwell" on one line, sized to always fit the screen. */
 .hero-name {
   white-space: nowrap;
   font-size: min(7.5rem, 11.4vw);
 }
-
-/* Layer behind all content that holds the drawings. */
-.florals {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-.floral {
-  position: absolute;
-  color: var(--floral);
-}
-.floral svg { display: block; width: 100%; height: auto; }
-
-/* Each drawing traces itself in like a pen, lingers, then is erased
-   from the start of each line to the end, like a pencil eraser. */
-.floral path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2s ease-in-out var(--d, 0s);
-}
-.floral.drawn path { stroke-dashoffset: 0; }
-.floral.erased path {
-  stroke-dashoffset: -1;
-  transition-duration: 1.6s;
-}
-/* Shapes filled with the page color let front petals hide what's behind
-   them; small solid details (flower centers, buds) fade in and out. */
-.floral .occ { fill: var(--bg); }
-.floral .ink { opacity: 0; transition: opacity 1s ease var(--d, 0s); }
-.floral.drawn .ink { opacity: 1; }
-.floral.erased .ink { opacity: 0; }
 
 /* Sections softly fade up as they scroll into view. */
 .reveal {
@@ -705,7 +666,5 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 
 /* Visitors who turn on "reduce motion": everything shows, nothing moves. */
 @media (prefers-reduced-motion: reduce) {
-  .floral path { stroke-dasharray: none; stroke-dashoffset: 0; transition: none; }
-  .floral .ink { opacity: 1; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
