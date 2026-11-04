@@ -390,15 +390,23 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   transform: translate(-50%, -50%) scale(1.08);
 }
 
-/* Use on a project-media with two images to show them side by side. */
+/* Use on a project-media with two (or more) images to show them side by
+   side. Every image in the row comes out the SAME HEIGHT, each as wide as
+   its shape needs, so tops and bottoms line up with nothing cropped.
+   Each <img> needs style="--ar: W / H" using its own width and height
+   numbers (e.g. width="700" height="981" → style="--ar: 700 / 981"). */
 .project-media--pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: flex-start;
   gap: 20px;
   max-width: 560px;
   width: 100%;
 }
-.project-media--pair img { max-width: 100%; }
+.project-media--pair img {
+  flex: calc(var(--ar, 1)) 1 0%;
+  min-width: 0;
+  max-width: none;
+}
 
 /* Use on a project-media that stacks one big image above a
    project-media--pair of two smaller ones. */
@@ -594,6 +602,9 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   .project-media--narrow .media-video-link { max-width: 420px; }
   .project-media--pair,
   .project-media--stack { max-width: 480px; margin: 0 auto; }
+  /* Keep the big photo in a stack exactly as wide as the row beneath it. */
+  .project-media--stack > img { max-width: 100%; }
+  .project-media--pair img { margin: 0; }
 
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 

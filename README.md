@@ -84,6 +84,12 @@ tall/narrow image (like a phone screenshot), `project-media--pair` for two
 images side by side, or `project-media--stack` for one big image with a
 `project-media--pair` of two smaller ones stacked beneath it.
 
+Images side by side in a `project-media--pair` are automatically made the
+same height (each as wide as its shape needs), so they always line up.
+For this to work, give each `<img>` in a pair a `style="--ar: W / H"`
+using that image's own `width` and `height` numbers, e.g.
+`width="700" height="981" ... style="--ar: 700 / 981"`.
+
 ### Link an image to a video (with a play button)
 
 See the UGC & Content Creation project in `work.html`: the image is wrapped
