@@ -679,3 +679,86 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ==========================================================
+   ENLARGE IMAGES — click or tap any Portfolio image to view it
+   large enough to read (script.js adds this to every image in a
+   project, except the video thumbnail, which opens the video).
+   ========================================================== */
+.zoomable {
+  cursor: zoom-in;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.zoomable:hover,
+.zoomable:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 56px -20px rgba(44, 50, 71, .45);
+}
+.zoomable:focus-visible { outline: 3px solid var(--sage-dark); outline-offset: 4px; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  overflow: auto;
+  padding: 64px 72px;
+  background: rgba(30, 34, 49, .95);
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.lightbox.open { opacity: 1; }
+/* margin: auto centers a small image, and lets a tall one scroll. */
+.lightbox img {
+  margin: auto;
+  max-width: min(1000px, 100%);
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+  cursor: default;
+}
+.lightbox button {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #444b62;
+  color: var(--white);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s;
+}
+.lightbox button:hover,
+.lightbox button:focus-visible { background: #5a6280; outline: none; }
+.lightbox .lb-close { top: 16px; right: 16px; }
+.lightbox .lb-prev  { left: 12px;  top: 50%; transform: translateY(-50%); }
+.lightbox .lb-next  { right: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox .lb-count {
+  position: fixed;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, .8);
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .lightbox { padding: 72px 12px 24px; }
+  .lightbox .lb-prev,
+  .lightbox .lb-next { top: auto; bottom: 16px; transform: none; }
+  .lightbox .lb-prev { left: calc(50% - 60px); }
+  .lightbox .lb-next { right: calc(50% - 60px); }
+  .lightbox:has(.lb-prev) { padding-bottom: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoomable, .lightbox { transition: none; }
+  .zoomable:hover, .zoomable:focus-visible { transform: none; }
+}

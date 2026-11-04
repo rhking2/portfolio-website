@@ -90,6 +90,14 @@ For this to work, give each `<img>` in a pair a `style="--ar: W / H"`
 using that image's own `width` and `height` numbers, e.g.
 `width="700" height="981" ... style="--ar: 700 / 981"`.
 
+### Enlarging images
+
+Every image in a Portfolio project can be clicked or tapped to open it
+large enough to read (with arrows between images in the same project).
+This happens automatically — nothing to add when you put in a new image.
+An image wrapped in a video link (like the UGC project) opens the video
+instead.
+
 ### Link an image to a video (with a play button)
 
 See the UGC & Content Creation project in `work.html`: the image is wrapped
