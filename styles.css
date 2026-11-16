@@ -22,6 +22,11 @@
   --space-gap: 48px;     /* between major blocks, and around divider lines */
   --space-bottom: 80px;  /* after a page's last content, before the footer */
 
+  /* White frame around every Portfolio graphic. The image's own corners
+     follow the inner edge of the frame, so the curves line up. */
+  --mat: 8px;            /* frame thickness */
+  --mat-radius: 18px;    /* outer corner curve (inner curve = 18 - 8 = 10px) */
+
   --chip-col: 230px;     /* narrowest width of a Skills/Tools bubble column */
 }
 
@@ -321,7 +326,9 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 .project-media img {
   width: 100%;
   max-width: 480px;
-  border-radius: var(--radius);
+  border: var(--mat) solid var(--white);
+  background: var(--white);
+  border-radius: var(--mat-radius);
   box-shadow: 0 24px 48px -20px rgba(44, 50, 71, .35);
 }
 
@@ -733,7 +740,9 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 10px;
+  border: var(--mat) solid var(--white);
+  background: var(--white);
+  border-radius: var(--mat-radius);
   box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
   cursor: default;
 }
@@ -817,16 +826,16 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   align-items: center;
   justify-content: center;
 }
-/* Each item is as large as fits the frame, keeping its own shape. */
+/* Each item is as large as fits the frame, keeping its own shape (the
+   white border is added around the image, so it is allowed for here). */
 .project-media .carousel-item {
-  width: min(100cqw, calc(100cqh * var(--ar, 1)));
+  width: min(100cqw, calc((100cqh - 2 * var(--mat)) * var(--ar, 1) + 2 * var(--mat)));
   max-width: none;
   height: auto;
-  aspect-ratio: var(--ar, 1);
   margin: 0;
   flex: none;
 }
-.project-media .carousel-item img { width: 100%; height: 100%; max-width: none; margin: 0; }
+.project-media .carousel-item img { width: 100%; height: auto; max-width: none; margin: 0; }
 
 /* Slides whose item is a link leave room above it for its label. */
 .carousel-slide.has-link { padding-top: 34px; }
