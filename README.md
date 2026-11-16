@@ -90,6 +90,14 @@ For this to work, give each `<img>` in a pair a `style="--ar: W / H"`
 using that image's own `width` and `height` numbers, e.g.
 `width="700" height="981" ... style="--ar: 700 / 981"`.
 
+### Slideshows
+
+Any project with more than one image or video automatically becomes a
+slideshow: one item at a time, moving on every 5 seconds, with arrows,
+dots, and swiping on phones. Nothing to set up — just put the images in
+the project's `project-media` block as usual (the speed is `AUTO_MS` in
+the "Slideshows" part of `script.js`).
+
 ### Enlarging images
 
 Every image in a Portfolio project can be clicked or tapped to open it

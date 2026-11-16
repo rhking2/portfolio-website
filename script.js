@@ -152,3 +152,164 @@ siteNav.querySelectorAll('a').forEach((link) => {
     });
   });
 })();
+
+// ------------------------------------------------------------------
+// Slideshows: any Portfolio project with more than one image/video
+// shows one at a time. It moves on by itself every few seconds
+// (pausing on hover, focus, or when off screen, and never for
+// visitors who prefer reduced motion), and can be clicked through
+// with the arrows, the dots, the ← → keys, or a swipe on phones.
+// ------------------------------------------------------------------
+(function slideshows() {
+  const AUTO_MS = 5000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ratioOf = (el) => {
+    const set = el.style.getPropertyValue('--ar');
+    if (set) return set;
+    const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+    if (img && img.getAttribute('width')) return img.getAttribute('width') + ' / ' + img.getAttribute('height');
+    return '2 / 3';
+  };
+
+  document.querySelectorAll('.project .project-media').forEach((media, mi) => {
+    // Every standalone image, or linked image/video, in the order shown.
+    const items = [...media.querySelectorAll('img, a.media-video-link')]
+      .filter((el) => !(el.tagName === 'IMG' && el.closest('a.media-video-link')));
+    if (items.length < 2) return;
+
+    const caption = media.querySelector(':scope > .media-caption');
+    const title = media.closest('.project').querySelector('h3');
+    const name = title ? title.textContent : 'Project';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'carousel';
+    wrap.setAttribute('role', 'region');
+    wrap.setAttribute('aria-roledescription', 'carousel');
+    wrap.setAttribute('aria-label', name + ' examples');
+
+    const viewport = document.createElement('div');
+    viewport.className = 'carousel-viewport';
+    const track = document.createElement('div');
+    track.className = 'carousel-track';
+    track.id = 'carousel-track-' + mi;
+    viewport.appendChild(track);
+
+    const slides = items.map((item, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', (i + 1) + ' of ' + items.length);
+      const frame = document.createElement('div');
+      frame.className = 'carousel-frame';
+      item.style.setProperty('--ar', ratioOf(item));
+      item.classList.add('carousel-item');
+      item.removeAttribute('loading'); // all slides ready before they slide in
+      frame.appendChild(item);
+      slide.appendChild(frame);
+      track.appendChild(slide);
+      return slide;
+    });
+
+    const btn = (cls, label, path) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'carousel-btn ' + cls;
+      b.setAttribute('aria-label', label);
+      b.setAttribute('aria-controls', track.id);
+      b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="' + path + '" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      return b;
+    };
+    const prev = btn('prev', 'Previous', 'M15 5l-7 7 7 7');
+    const next = btn('next', 'Next', 'M9 5l7 7-7 7');
+
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    const dotBtns = items.map((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Show ' + (i + 1) + ' of ' + items.length);
+      d.setAttribute('aria-controls', track.id);
+      dots.appendChild(d);
+      return d;
+    });
+
+    wrap.append(viewport, prev, next, dots);
+    media.className = 'project-media project-media--carousel' + (caption ? ' project-media--captioned' : '');
+    media.replaceChildren(...(caption ? [caption, wrap] : [wrap]));
+
+    let index = 0;
+    function go(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-100 * index) + '%)';
+      slides.forEach((s, k) => {
+        if (k === index) s.removeAttribute('inert');
+        else s.setAttribute('inert', '');
+      });
+      dotBtns.forEach((d, k) => d.setAttribute('aria-current', k === index ? 'true' : 'false'));
+    }
+    go(0);
+
+    // Auto-advance, paused while hovered, focused, off screen, or hidden.
+    let hovering = false;
+    let focused = false;
+    let onScreen = false;
+    let timer = null;
+    const canRun = () => !reduceMotion && !hovering && !focused && onScreen && !document.hidden;
+    function schedule() {
+      clearTimeout(timer);
+      if (canRun()) timer = setTimeout(() => { go(index + 1); schedule(); }, AUTO_MS);
+    }
+    wrap.addEventListener('mouseenter', () => { hovering = true; schedule(); });
+    wrap.addEventListener('mouseleave', () => { hovering = false; schedule(); });
+    // Pause for keyboard users (not after a mouse click on an arrow).
+    wrap.addEventListener('focusin', (e) => {
+      focused = e.target.matches(':focus-visible');
+      schedule();
+    });
+    wrap.addEventListener('focusout', (e) => {
+      if (!wrap.contains(e.relatedTarget)) { focused = false; schedule(); }
+    });
+    document.addEventListener('visibilitychange', schedule);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        onScreen = entries[0].isIntersecting;
+        schedule();
+      }, { threshold: 0.4 }).observe(wrap);
+    }
+
+    prev.addEventListener('click', () => { go(index - 1); schedule(); });
+    next.addEventListener('click', () => { go(index + 1); schedule(); });
+    dotBtns.forEach((d, i) => d.addEventListener('click', () => { go(i); schedule(); }));
+    wrap.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { go(index - 1); schedule(); }
+      if (e.key === 'ArrowRight') { go(index + 1); schedule(); }
+    });
+
+    // Swipe on touch screens (a swipe never counts as a click).
+    let startX = null;
+    let startY = null;
+    let swiped = false;
+    viewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse') return;
+      startX = e.clientX;
+      startY = e.clientY;
+      swiped = false;
+    });
+    viewport.addEventListener('pointerup', (e) => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      startX = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        swiped = true;
+        go(index + (dx < 0 ? 1 : -1));
+        schedule();
+      }
+    });
+    viewport.addEventListener('click', (e) => {
+      if (swiped) { e.preventDefault(); e.stopPropagation(); swiped = false; }
+    }, true);
+  });
+})();
