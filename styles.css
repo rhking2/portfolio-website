@@ -289,16 +289,6 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 /* The "Next →" link below the last project brings its own top spacing. */
 .project:last-of-type { margin-bottom: 0; }
 
-.project-eyebrow {
-  display: inline-block;
-  font-weight: 600;
-  color: var(--sage-dark);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: .75rem;
-  margin-bottom: 10px;
-}
-
 .project-copy h3 {
   font-family: var(--font-head);
   font-weight: 700;

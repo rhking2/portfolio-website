@@ -73,7 +73,6 @@ In `work.html`, find any existing project block — it starts with
 before the next `<!-- Project` comment (or `</section>`). Copy that whole
 block, paste it in, and edit:
 
-- the eyebrow label (`Project 07`)
 - the title, description, and any stats
 - the image `src` (see "Swap a photo" above for uploading it first)
 
