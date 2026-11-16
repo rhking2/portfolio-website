@@ -866,6 +866,24 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 .carousel-dots button[aria-current="true"] { background: var(--navy); transform: scale(1.25); }
 .carousel-dots button:focus-visible { outline: 2px solid var(--sage-dark); outline-offset: 3px; }
 
+/* Bullets that change with the slideshow: all the lists share one spot
+   (sized to the longest, so nothing below moves) and only the list for
+   the slide on screen is visible. */
+.slide-notes {
+  display: grid;
+  margin-top: 20px;
+}
+.slide-notes > .stat-list {
+  grid-area: 1 / 1;
+  margin: 0;
+  transition: opacity .35s ease, visibility .35s;
+}
+.slide-notes > .stat-list:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .carousel-track { transition: none; }
+  .carousel-track,
+  .slide-notes > .stat-list { transition: none; }
 }

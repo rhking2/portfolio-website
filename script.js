@@ -239,6 +239,16 @@ siteNav.querySelectorAll('a').forEach((link) => {
     media.className = 'project-media project-media--carousel' + (caption ? ' project-media--captioned' : '');
     media.replaceChildren(...(caption ? [caption, wrap] : [wrap]));
 
+    // Bullet lists tied to slides (data-slide="1", "1 2", ...) share one
+    // spot in the text and swap as the slides change.
+    const notes = [...media.closest('.project').querySelectorAll('.project-copy ul[data-slide]')];
+    if (notes.length) {
+      const holder = document.createElement('div');
+      holder.className = 'slide-notes';
+      notes[0].before(holder);
+      holder.append(...notes);
+    }
+
     let index = 0;
     function go(i) {
       index = (i + slides.length) % slides.length;
@@ -248,6 +258,9 @@ siteNav.querySelectorAll('a').forEach((link) => {
         else s.setAttribute('inert', '');
       });
       dotBtns.forEach((d, k) => d.setAttribute('aria-current', k === index ? 'true' : 'false'));
+      notes.forEach((ul) => {
+        ul.classList.toggle('is-active', ul.dataset.slide.split(/\s+/).includes(String(index + 1)));
+      });
     }
     go(0);
 

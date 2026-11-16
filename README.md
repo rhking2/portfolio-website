@@ -97,6 +97,14 @@ dots, and swiping on phones. Nothing to set up — just put the images in
 the project's `project-media` block as usual (the speed is `AUTO_MS` in
 the "Slideshows" part of `script.js`).
 
+### Bullets that change with the slideshow
+
+In a project with a slideshow, you can give each image its own bullets:
+split the bullets into separate `<ul class="stat-list">` lists and add
+`data-slide="1"` (first image), `data-slide="2"`, etc. to each one. A list
+can belong to more than one image (`data-slide="1 2"`). A list without
+`data-slide` always shows. See Paid Media in `work.html` for an example.
+
 ### Enlarging images
 
 Every image in a Portfolio project can be clicked or tapped to open it
