@@ -824,6 +824,22 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
 }
 .project-media .carousel-item img { width: 100%; height: 100%; max-width: none; margin: 0; }
 
+/* Slides whose item is a link leave room above it for its label. */
+.carousel-slide.has-link { padding-top: 34px; }
+.media-link-label {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--sage-dark);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .carousel-btn {
   position: absolute;
   top: calc(50% - 13px);

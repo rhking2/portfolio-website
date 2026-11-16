@@ -204,6 +204,16 @@ siteNav.querySelectorAll('a').forEach((link) => {
       const frame = document.createElement('div');
       frame.className = 'carousel-frame';
       item.style.setProperty('--ar', ratioOf(item));
+      // A clickable item (video or post) gets its "Click Below to View"
+      // label right above its own top edge, so it's clear what to click.
+      if (item.matches('a.media-video-link')) {
+        slide.classList.add('has-link');
+        const label = document.createElement('span');
+        label.className = 'media-link-label';
+        label.setAttribute('aria-hidden', 'true');
+        label.textContent = caption ? caption.textContent : 'Click Below to View';
+        item.appendChild(label);
+      }
       item.classList.add('carousel-item');
       item.removeAttribute('loading'); // all slides ready before they slide in
       frame.appendChild(item);
@@ -236,8 +246,8 @@ siteNav.querySelectorAll('a').forEach((link) => {
     });
 
     wrap.append(viewport, prev, next, dots);
-    media.className = 'project-media project-media--carousel' + (caption ? ' project-media--captioned' : '');
-    media.replaceChildren(...(caption ? [caption, wrap] : [wrap]));
+    media.className = 'project-media project-media--carousel';
+    media.replaceChildren(wrap);
 
     // Bullet lists tied to slides (data-slide="1", "1 2", ...) share one
     // spot in the text and swap as the slides change.
