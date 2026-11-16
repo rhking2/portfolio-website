@@ -724,11 +724,15 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   transition: opacity .2s ease;
 }
 .lightbox.open { opacity: 1; }
-/* margin: auto centers a small image, and lets a tall one scroll. */
+/* The whole image fits on screen (no scrolling), centered, keeping its
+   shape: as large as the window allows, up to its real size. */
 .lightbox img {
   margin: auto;
-  max-width: min(1000px, 100%);
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
   cursor: default;
