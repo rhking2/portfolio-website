@@ -3,7 +3,7 @@ All recolored to the site's navy (#2c3247).
 
 Brand logos — Simple Icons (https://simpleicons.org), CC0 1.0:
   mailchimp.svg, canva.svg, adobe.svg, meta.svg, wordpress.svg,
-  etsy.svg, shopify.svg, google.svg
+  etsy.svg, shopify.svg, google.svg, dropbox.svg, claude.svg
   Brand names and logos are trademarks of their respective owners.
 
 Generic placeholder symbols — Material Design Icons
