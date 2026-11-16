@@ -415,6 +415,56 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   max-width: none;
 }
 
+/* Linked images/videos can sit in a pair too: the <a> gets the --ar. */
+.project-media--pair > .media-video-link {
+  flex: calc(var(--ar, 1)) 1 0%;
+  min-width: 0;
+  max-width: none;
+}
+.project-media .project-media--pair > .media-video-link img {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* A clickable tile standing in for a video thumbnail (e.g. an Instagram
+   reel without a screenshot yet): same shape as its --ar, navy, with a
+   play button and a short label. */
+.media-tile {
+  aspect-ratio: var(--ar, 2 / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, #3a4260 0%, var(--navy) 70%);
+  box-shadow: 0 24px 48px -20px rgba(44, 50, 71, .35);
+  color: var(--white);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.media-tile .play-button {
+  position: static;
+  transform: none;
+  background: rgba(255, 255, 255, .16);
+}
+.media-tile:hover,
+.media-tile:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 56px -20px rgba(44, 50, 71, .45);
+}
+.media-tile:hover .play-button {
+  background: var(--sage-dark);
+  transform: scale(1.08);
+}
+.media-tile-label {
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-align: center;
+  padding: 0 10px;
+}
+
 /* Use on a project-media that stacks one big image above a
    project-media--pair of two smaller ones. */
 .project-media--stack {

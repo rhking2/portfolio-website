@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
 
@@ -82,22 +82,38 @@
     <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 03</span>
-        <h3>UGC &amp; Content Creation</h3>
+        <h3>Content Creation</h3>
         <p>Create short-form video and UGC for brands through Cohley and TikTok Shop, from concept and filming to editing and captions.</p>
         <ul class="stat-list">
           <li>Produced a UGC video for Arm &amp; Hammer through Cohley, created to the brand's guidelines</li>
           <li>86.9K views across my content in the past year, with 70% coming from search</li>
         </ul>
       </div>
-      <!-- EDIT HERE: swap the href below to link to a different video -->
-      <div class="project-media project-media--narrow project-media--captioned">
+      <!-- EDIT HERE: each <a href="..."> is the post/video that opens on
+           click. The photo spans the top; the two videos sit side by side
+           below (each needs style="--ar: W / H" for even sizing). -->
+      <div class="project-media project-media--stack project-media--captioned">
         <p class="media-caption">Click Below to View</p>
-        <a class="media-video-link" href="https://drive.google.com/file/d/1OJrL4ncj-h9oKQ9WeURtsAVx-mh7UEq2/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Watch the Arm &amp; Hammer UGC video">
-          <img src="assets/img/ugc-content.jpg" alt="UGC video screenshot of a kitten jumping onto an Arm &amp; Hammer Clump &amp; Seal Slide litter box, captioned 'was not in my bingo card'" width="700" height="1050" loading="lazy">
-          <span class="play-button" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="white"/></svg>
-          </span>
+        <a class="media-video-link" href="https://www.instagram.com/p/DMLCqhSSTEI/" target="_blank" rel="noopener" aria-label="View the Sydney Opera House post on Instagram">
+          <img src="assets/img/creative-direction-opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" width="1600" height="1190" loading="lazy">
         </a>
+        <div class="project-media--pair">
+          <a class="media-video-link" href="https://drive.google.com/file/d/1OJrL4ncj-h9oKQ9WeURtsAVx-mh7UEq2/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Watch the Arm &amp; Hammer UGC video" style="--ar: 700 / 1050">
+            <img src="assets/img/ugc-content.jpg" alt="UGC video screenshot of a kitten jumping onto an Arm &amp; Hammer Clump &amp; Seal Slide litter box, captioned 'was not in my bingo card'" width="700" height="1050" loading="lazy">
+            <span class="play-button" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="white"/></svg>
+            </span>
+          </a>
+          <!-- Placeholder tile until there's a screenshot of the reel: to
+               use one, replace the <span class="media-tile-label"> with an
+               <img> like the one above and remove "media-tile". -->
+          <a class="media-video-link media-tile" href="https://www.instagram.com/reel/CuxWv8bACKX/" target="_blank" rel="noopener" aria-label="Watch the National Children's Chorus reel on Instagram" style="--ar: 700 / 1050">
+            <span class="play-button" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="white"/></svg>
+            </span>
+            <span class="media-tile-label">Watch on Instagram</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -151,27 +167,18 @@
       </div>
     </div>
 
-    <!-- Project 7: the photo links to its Instagram post (click opens the
-         post); the logos below can be clicked to enlarge. To add a post:
-         copy the <a class="media-video-link"> block and change the href,
-         image, and alt text. -->
+    <!-- Project 7 -->
     <div class="project">
       <div class="project-copy">
         <span class="project-eyebrow">Project 07</span>
-        <h3>Content &amp; Design</h3>
+        <h3>Graphic Design</h3>
         <ul class="stat-list">
           <li>Logos: designed brand logos using Canva and Adobe</li>
         </ul>
       </div>
-      <div class="project-media project-media--stack project-media--captioned">
-        <p class="media-caption">Click Below to View</p>
-        <a class="media-video-link" href="https://www.instagram.com/p/DMLCqhSSTEI/" target="_blank" rel="noopener" aria-label="View the Sydney Opera House post on Instagram">
-          <img src="assets/img/creative-direction-opera-house.jpg" alt="National Children's Chorus performing on the steps of the Sydney Opera House" width="1600" height="1190" loading="lazy">
-        </a>
-        <div class="project-media--pair">
-          <img src="assets/img/logo-hill-country-hangs.png" alt="Hill Country Hangs logo: a moth illustration inside a circular badge" width="982" height="922" loading="lazy" style="--ar: 982 / 922">
-          <img src="assets/img/logo-rodeo-rebel.webp" alt="Rodeo Rebel logo in rope lettering with a bow, Leather Goods &amp; Accessories" width="1016" height="884" loading="lazy" style="--ar: 1016 / 884">
-        </div>
+      <div class="project-media project-media--pair">
+        <img src="assets/img/logo-hill-country-hangs.png" alt="Hill Country Hangs logo: a moth illustration inside a circular badge" width="982" height="922" loading="lazy" style="--ar: 982 / 922">
+        <img src="assets/img/logo-rodeo-rebel.webp" alt="Rodeo Rebel logo in rope lettering with a bow, Leather Goods &amp; Accessories" width="1016" height="884" loading="lazy" style="--ar: 1016 / 884">
       </div>
     </div>
 
