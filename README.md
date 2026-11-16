@@ -103,7 +103,10 @@ In a project with a slideshow, you can give each image its own bullets:
 split the bullets into separate `<ul class="stat-list">` lists and add
 `data-slide="1"` (first image), `data-slide="2"`, etc. to each one. A list
 can belong to more than one image (`data-slide="1 2"`). A list without
-`data-slide` always shows. See Paid Media in `work.html` for an example.
+`data-slide` always shows. To give a slide's bullets a heading (like
+"Project 1: Meta Ads"), wrap the heading and list in
+`<div class="slide-note" data-slide="1">` with an
+`<h4 class="slide-note-title">` — see Paid Media in `work.html`.
 
 ### Enlarging images
 

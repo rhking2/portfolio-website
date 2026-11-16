@@ -873,17 +873,29 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   display: grid;
   margin-top: 20px;
 }
-.slide-notes > .stat-list {
+.slide-notes > [data-slide] {
   grid-area: 1 / 1;
   margin: 0;
   transition: opacity .35s ease, visibility .35s;
 }
-.slide-notes > .stat-list:not(.is-active) {
+.slide-notes > [data-slide]:not(.is-active) {
   opacity: 0;
   visibility: hidden;
 }
 
+/* A slide's own heading + bullets (e.g. "Project 1: Meta Ads"). */
+.slide-note { margin-top: 20px; }
+.slide-note-title {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--sage-dark);
+  letter-spacing: .01em;
+  margin: 0 0 10px;
+}
+.slide-note .stat-list { margin-top: 0; }
+
 @media (prefers-reduced-motion: reduce) {
   .carousel-track,
-  .slide-notes > .stat-list { transition: none; }
+  .slide-notes > [data-slide] { transition: none; }
 }

@@ -241,7 +241,7 @@ siteNav.querySelectorAll('a').forEach((link) => {
 
     // Bullet lists tied to slides (data-slide="1", "1 2", ...) share one
     // spot in the text and swap as the slides change.
-    const notes = [...media.closest('.project').querySelectorAll('.project-copy ul[data-slide]')];
+    const notes = [...media.closest('.project').querySelectorAll('.project-copy [data-slide]')];
     if (notes.length) {
       const holder = document.createElement('div');
       holder.className = 'slide-notes';
@@ -258,8 +258,8 @@ siteNav.querySelectorAll('a').forEach((link) => {
         else s.setAttribute('inert', '');
       });
       dotBtns.forEach((d, k) => d.setAttribute('aria-current', k === index ? 'true' : 'false'));
-      notes.forEach((ul) => {
-        ul.classList.toggle('is-active', ul.dataset.slide.split(/\s+/).includes(String(index + 1)));
+      notes.forEach((note) => {
+        note.classList.toggle('is-active', note.dataset.slide.split(/\s+/).includes(String(index + 1)));
       });
     }
     go(0);

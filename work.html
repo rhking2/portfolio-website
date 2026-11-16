@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=24">
+<link rel="stylesheet" href="styles.css?v=25">
 </head>
 <body>
 
@@ -48,16 +48,23 @@
       <div class="project-copy">
         <h3>Paid Media</h3>
         <p>Ran and managed targeted placements across eight markets, writing copy and sourcing content to recruit new members through the audition process.</p>
-        <!-- EDIT HERE: data-slide says which slide(s) each list goes with
-             (1 = first image). A list without data-slide always shows. -->
-        <ul class="stat-list" data-slide="1 2">
-          <li>Spring 2025 Meta campaigns: $4,700 spend → 20 audition sign-ups at $235 each</li>
-          <li>Each new member worth ~$2,500/year, up to $50,000 annually</li>
-        </ul>
-        <ul class="stat-list" data-slide="3">
-          <li>8 of 64 total enrollment sign-ups in that market came from this campaign</li>
-          <li>12.5% of all New York registrations came from a single placement</li>
-        </ul>
+        <!-- EDIT HERE: data-slide says which slide(s) each block goes with
+             (1 = first image); its heading and bullets show with that slide.
+             A block or list without data-slide always shows. -->
+        <div class="slide-note" data-slide="1 2">
+          <h4 class="slide-note-title">Project 1: Meta Ads</h4>
+          <ul class="stat-list">
+            <li>Spring 2025 Meta campaigns: $4,700 spend → 20 audition sign-ups at $235 each</li>
+            <li>Each new member worth ~$2,500/year, up to $50,000 annually</li>
+          </ul>
+        </div>
+        <div class="slide-note" data-slide="3">
+          <h4 class="slide-note-title">NYC Digital Ad Placement</h4>
+          <ul class="stat-list">
+            <li>8 of 64 total enrollment sign-ups in that market came from this campaign</li>
+            <li>12.5% of all New York registrations came from a single placement</li>
+          </ul>
+        </div>
       </div>
       <div class="project-media project-media--pair">
         <img src="assets/img/paid-media-ig-story.jpg" alt="Instagram story ad for National Children's Chorus Boston chapter vocal auditions" width="700" height="981" loading="lazy" style="--ar: 700 / 981">
@@ -185,6 +192,6 @@
   <a href="index.html">RH</a>
 </footer>
 
-<script src="script.js?v=15"></script>
+<script src="script.js?v=16"></script>
 </body>
 </html>
