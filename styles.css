@@ -424,6 +424,10 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   width: 100%;
 }
 .project-media--stack > img { max-width: 100%; }
+/* A linked image (e.g. to an Instagram post) in a stack spans the same width
+   as the row beneath it. */
+.project-media--stack .media-video-link,
+.project-media--stack .media-video-link img { max-width: 100%; }
 
 /* Experience */
 .timeline { display: flex; flex-direction: column; gap: 44px; }
@@ -610,7 +614,9 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   .project-media--pair,
   .project-media--stack { max-width: 480px; margin: 0 auto; }
   /* Keep the big photo in a stack exactly as wide as the row beneath it. */
-  .project-media--stack > img { max-width: 100%; }
+  .project-media--stack > img,
+  .project-media--stack .media-video-link,
+  .project-media--stack .media-video-link img { max-width: 100%; }
   .project-media--pair img { margin: 0; }
 
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
