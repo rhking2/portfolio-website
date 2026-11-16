@@ -366,6 +366,13 @@ main > .section:last-child { padding-bottom: var(--space-bottom); }
   position: relative;
   display: block;
   width: 100%;
+  max-width: 480px;
+}
+.media-video-link img { transition: transform .25s ease, box-shadow .25s ease; }
+.media-video-link:hover img,
+.media-video-link:focus-visible img {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 56px -20px rgba(44, 50, 71, .45);
 }
 
 .play-button {
